@@ -1,16 +1,22 @@
 <!doctype html>
-<html lang="en">
+<html  lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://unpkg.com/tailwindcss@1.4.6/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+     
+        
+    </style>
 </head>
-<body class="h-screen overflow-hidden flex items-center justify-center" style="background: #edf2f7;">
-    <div class="flex flex-row min-w-full min-h-screen bg-gray-100 text-gray-800">
+<!-- we can add scroll bar -->
+<body  class="h-screen overflow-x: auto  flex items-center justify-center" style="background: #edf2f7 ">
+    <div 
+    class="flex flex-row min-w-full min-h-screen bg-gray-100 text-gray-800 ">
     <aside
-      class="sidebar w-64 md:shadow transform -translate-x-full md:translate-x-0 transition-transform duration-150 ease-in bg-indigo-500"
-    >
+      class="sidebar w-64 md:shadow transform -translate-x-full 
+      md:translate-x-0 transition-transform duration-150 ease-in bg-indigo-500">
       <div class="sidebar-header flex items-center justify-center py-4">
         <div class="inline-flex">
           <a href="#" class="inline-flex flex-row items-center">
@@ -249,9 +255,9 @@
         </ul>
       </div>
     </aside>
-    <main class="main flex flex-col flex-grow -ml-64 md:ml-0 transition-all duration-150 ease-in">
+    <main style="overflow-x:auto" class=" main flex flex-col flex-grow -ml-64 md:ml-0 transition-all duration-150 ease-in">
       <header class="header bg-white shadow py-4 px-4">
-        <div class="header-content flex items-center flex-row">
+        <div class="header-content flex items-center flex-row ">
           <form action="#">
             <div class="hidden md:flex relative">
               <div
@@ -294,7 +300,7 @@
               </a>
             </div>
           </form>
-          <div class="flex ml-auto">
+          <div  class="flex ml-auto" >
             <a href class="flex flex-row items-center">
               <img
                 src="https://pbs.twimg.com/profile_images/378800000298815220/b567757616f720812125bfbac395ff54_normal.png"
@@ -310,11 +316,14 @@
         </div>
       </header>
       <div class="main-content flex flex-col flex-grow p-4">
-        <h1 class="font-bold text-2xl text-gray-700">Dashboard</h1>
-
-        <div
-          class="flex flex-col flex-grow border-4 border-gray-400 border-dashed bg-white rounded mt-4"
-        >{{$slot}}</div>
+        
+          
+        <div  id="slotId"
+         >
+         {{$slot}}
+        </div>
+       
+          
       </div>
       <footer class="footer px-4 py-6">
         <div class="footer-content">
@@ -323,5 +332,6 @@
       </footer>
     </main>
   </div>
+  
 </body>
 </html>

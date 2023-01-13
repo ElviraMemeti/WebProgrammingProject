@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ApplicantController;
+use App\Models\Applicant;
 use Illuminate\Support\Facades\Route;
 
 
@@ -25,3 +26,17 @@ Route::get('/', function () {
 
 
 Route::get('/applicants', [ApplicantController::class, 'index'])->name('applicants');
+
+//store students data
+Route::post('/applicants', [ApplicantController::class, 'store']);
+
+
+//Register student // create
+Route::get('/applicants/studentRegister', [ApplicantController::class, 'studentRegister']);
+
+
+Route::get('/applicants/{applicant}/edit',
+[ApplicantController::class, 'edit']);
+
+//Update student
+Route::put('/applicants/{applicant}',[ApplicantController::class,'update']);

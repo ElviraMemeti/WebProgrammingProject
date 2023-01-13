@@ -9,7 +9,13 @@ class Applicant extends Model
 {
     use HasFactory;
     protected $table='applicants';
-    // protected $fillable = ['title', 'company', 'location', 'website', 'email', 'description', 'tags'];
+    protected $fillable =['name','Surname','studentId','faculty','Programme',
+     'Academic_Year','email','phone', 'status'];
+
+
+
+
+
 
 //    public function scopeFilter($query, array $filters){
 //     if ($filters['tag'] ?? false)

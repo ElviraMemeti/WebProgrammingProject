@@ -89,7 +89,9 @@
                     </td>
 
                     <td>
-                      <form action="{{ route('applicants',$applicant->StudentID) }}" method="POST" onsubmit="return confirm('{{ trans(',are, You ,Sure ? ') }}' ">
+                      <form action="/applicants/{{$applicant->id}}" method="POST" onsubmit="return confirm('{{ trans(',are, You ,Sure ? ') }}' ">
+                      @csrf
+                      @method('DELETE')
                     
                         <input type="hidden" name="_method" value="DELETE">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">

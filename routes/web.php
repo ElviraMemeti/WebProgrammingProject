@@ -40,3 +40,6 @@ Route::get('/applicants/{applicant}/edit',
 
 //Update student
 Route::put('/applicants/{applicant}',[ApplicantController::class,'update']);
+
+//Delete student
+Route::delete('/applicants/{applicant}',[ApplicantController::class,'destroy']);

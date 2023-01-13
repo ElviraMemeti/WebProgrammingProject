@@ -11,7 +11,10 @@
                       ID
                     </th>
                     <th scope="col" class="text-sm font-medium text-white px-6 py-4">
-                    Name&Surname
+                    Name
+                    </th>
+                    <th scope="col" class="text-sm font-medium text-white px-6 py-4">
+                    Last Name
                     </th>
                     
                     <th scope="col" class="text-sm font-medium text-white px-6 py-4">
@@ -54,6 +57,10 @@
                         {{$applicant['Name']}}
                     </td>
                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                        {{$applicant['LastName']}}
+                    </td>
+
+                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                         {{$applicant['StudentID']}}
                     </td>
                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
@@ -82,14 +89,14 @@
                     </td>
                     <td style=" position: relative"
                     class="text-sm font-medium leading-5 text-center whitespace-no-wrap border-b border-gray-200 ">
-                    <a href="/applicants/{{$applicant->id}}"
+                    <a href="/applicants/{{$applicant->id}}/edit"
                         class="text-indigo-600 hover:text-indigo-900">
                         <x-svg.edit/>
                     </a>
                     </td>
 
                     <td>
-                      <form style=" position: relative" action="/applicants/{{$applicant->id}}" method="POST" onsubmit="return confirm('{{ trans(',are, You ,Sure ? ') }}' ">
+                      <form method="POST" style=" position: relative" action="/applicants/{{$applicant->id}}"  onsubmit="return confirm('{{ trans(',are, You ,Sure ? ') }}' ">
                       @csrf
                       @method('DELETE')
                     

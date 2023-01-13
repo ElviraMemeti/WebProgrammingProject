@@ -9,7 +9,7 @@ class Applicant extends Model
 {
     use HasFactory;
     protected $table='applicants';
-    protected $fillable =['name','Surname','studentId','faculty','Programme',
+    protected $fillable =['name','LastName','studentId','faculty','Programme',
      'Academic_Year','email','phone', 'status'];
 
 

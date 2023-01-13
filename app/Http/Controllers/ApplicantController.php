@@ -48,6 +48,7 @@ public function update(Request $request, Applicant $applicant)
 {
     $formFields= $request->validate([
         'name'=> 'required',
+        'LastName'=>'required',
         'studentId'=>'required',
         'faculty'=>'required',
         'Programme'=>'required',

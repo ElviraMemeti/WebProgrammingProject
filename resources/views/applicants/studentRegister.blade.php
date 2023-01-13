@@ -3,6 +3,7 @@
 <html>  
 <head>  
 <meta name="viewport" content="width=device-width, initial-scale=1">  
+
 <style>
 input[type=text], select, textarea{
   width: 100%;
@@ -27,8 +28,18 @@ input[type=submit] {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  float: right;
+  margin-left: 70%;
   margin-top: 10px;
+}
+
+/* Style the cancel button */
+a[type=cancel] {
+  background-color: skyblue;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+ 
 }
 
 /* Style the container */
@@ -42,13 +53,13 @@ input[type=submit] {
 .col-25 {
   float: left;
   width: 25%;
-  margin-top: 6px;
+  margin-top: 1px;
 }
 
 /* Floating column for inputs: 75% width */
 .col-75 {
   float: left;
-  width: 75%;
+  width: 60%;
   margin-top: 6px;
 }
 
@@ -80,20 +91,18 @@ body {
 </style>  
 </head>  
 <body  style=" overflow-x:auto " > 
-  
-<form  method="POST"  action="/applicants" >  
-@csrf
-<div class="container">
-<h1 class="title">Student registration form</h1> 
-</div>
-<div class="container">
-  <form action="action_page.php">
+
+     
+  <form  method="POST"  action="/applicants" class="table-responsive">  
+    @csrf
+
+  <div class="container">
+    
     <div class="row">
       <div class="col-25">
-        <label for="name">Name&Surname</label>
+        <label for="name">Name</label>
       </div>
       <div class="col-75">
-        
         <input type="text" name="name" placeholder= "Name" size="15" required /> 
       </div>
     </div>
@@ -101,6 +110,18 @@ body {
     <p class="text-red-500 text-xs mt-1">{{$message}}</p>
     @enderror
 
+
+    <div class="row">
+      <div class="col-25">
+        <label for="LastName">Last Name</label>
+      </div>
+      <div class="col-75">
+        <input type="text" name="LastName" placeholder= "Last Name" size="15" required /> 
+      </div>
+    </div>
+    @error('LastName')
+    <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+    @enderror
 
     
 
@@ -237,13 +258,12 @@ body {
 
     <div class="row">
       <input type="submit" value="Submit">
-     
+      <a  type="cancel" href="{{ url()->previous() }}" class="btn btn-secondary">Cancel</a>
     </div>
-  </form>
-</div>
-</body>
-</form> 
- 
+
+  </div>
+  </body>
+  </form> 
 
 
 

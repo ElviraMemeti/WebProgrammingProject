@@ -26,20 +26,21 @@ Route::get('/', function () {
 
 
 Route::get('/applicants', [ApplicantController::class, 'index'])->name('applicants');
+//Register student // create
+Route::get('/applicants/studentRegister', [ApplicantController::class, 'studentRegister']);
 
 //store students data
 Route::post('/applicants', [ApplicantController::class, 'store']);
 
 
-//Register student // create
-Route::get('/applicants/studentRegister', [ApplicantController::class, 'studentRegister']);
 
-
-Route::get('/applicants/{applicant}/edit',
-[ApplicantController::class, 'edit']);
+//edit form
+Route::get('/applicants/{applicant}/edit',[ApplicantController::class, 'edit']);
 
 //Update student
 Route::put('/applicants/{applicant}',[ApplicantController::class,'update']);
 
 //Delete student
 Route::delete('/applicants/{applicant}',[ApplicantController::class,'destroy']);
+
+

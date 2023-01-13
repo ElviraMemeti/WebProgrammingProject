@@ -49,7 +49,7 @@
                 <tbody>
                 @foreach($applicants as $applicant)
                   <tr class="bg-white border-b">
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">1</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{$applicant['id']}}</td>
                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                         {{$applicant['Name']}}
                     </td>
@@ -74,22 +74,22 @@
                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                     {{$applicant['Status']}}
                     </td>
-                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    <td style=" position: relative" class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                     <a href="{{ route('applicants', $applicant->StudentID) }}"
                         class="text-indigo-600 hover:text-indigo-900">
                         <x-svg.view/>
                     </a>
                     </td>
-                    <td
+                    <td style=" position: relative"
                     class="text-sm font-medium leading-5 text-center whitespace-no-wrap border-b border-gray-200 ">
-                    <a href="/applicants/{{$applicant->id}}/edit"
+                    <a href="/applicants/{{$applicant->id}}"
                         class="text-indigo-600 hover:text-indigo-900">
                         <x-svg.edit/>
                     </a>
                     </td>
 
                     <td>
-                      <form action="/applicants/{{$applicant->id}}" method="POST" onsubmit="return confirm('{{ trans(',are, You ,Sure ? ') }}' ">
+                      <form style=" position: relative" action="/applicants/{{$applicant->id}}" method="POST" onsubmit="return confirm('{{ trans(',are, You ,Sure ? ') }}' ">
                       @csrf
                       @method('DELETE')
                     

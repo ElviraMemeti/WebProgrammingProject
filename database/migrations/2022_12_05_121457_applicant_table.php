@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('applicants', function (Blueprint $table) {
             $table->id();
         $table->String('Name');
+        $table->String('LastName');
         $table->String('StudentID')->unique();
         $table->String('Faculty');
         $table->String('Programme');

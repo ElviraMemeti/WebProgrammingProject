@@ -24,6 +24,7 @@ public function store(Request $request)
 {
     $formFields= $request->validate([
         'name'=> 'required',
+        'LastName'=>'required',
         'studentId'=>['required', Rule::unique('applicants','studentId')],
         'faculty'=>'required',
         'Programme'=>'required',

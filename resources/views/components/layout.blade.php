@@ -326,6 +326,6 @@
       </footer>
     </main>
   </div>
-  
+  <x-register-message/>
 </body>
 </html>

@@ -35,7 +35,7 @@ public function store(Request $request)
     ]);
 
     Applicant::create($formFields);
-    return redirect('/applicants');
+    return redirect('/applicants')->with('message',"Student:  registered successfully!");
 
 }
 
@@ -60,7 +60,7 @@ public function update(Request $request, Applicant $applicant)
     ]);
 
     $applicant->update($formFields);
-    return back()->with('message', 'Updated successfully!');
+    return redirect('/applicants')->with('message', "Student: {$applicant['Name']} updated successfully!");
     
 
 }
@@ -69,7 +69,7 @@ public function update(Request $request, Applicant $applicant)
 public function destroy(Applicant $applicant)
 {
     $applicant->delete();
-    return redirect('/applicants')->with('message','Deleted Successfully');
+    return redirect('/applicants')->with('message',"Student: {$applicant['Name']} deleted successfully!");
 }
 
 }

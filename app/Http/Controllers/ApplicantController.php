@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Applicant;
+use App\Models\Faculty;
+use App\Models\StudyProgram;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -17,31 +19,38 @@ class ApplicantController extends Controller
 
 public function studentRegister()
 {
-    return view('applicants.studentRegister');
+    return view('applicants.studentRegister',[
+        'faculties'=> Faculty::all(),
+        'studyprograms'=> StudyProgram::all()
+    ]);
 }
 
 public function store(Request $request)
 {
     $formFields= $request->validate([
         'name'=> 'required',
-        'LastName'=>'required',
-        'studentId'=>['required', Rule::unique('applicants','studentId')],
-        'faculty'=>'required',
-        'Programme'=>'required',
-        'Academic_Year'=>'required',
+        'lastname'=>'required',
+        'studentID'=>['required', Rule::unique('applicants','studentID')],
+        'faculty_id'=>'required',
+        'programme_id'=>'required',
+        'academic_year'=>'required',
         'email'=>['required', 'email'],
         'phone'=>'required',
         'status'=>'required',   
     ]);
-
-    Applicant::create($formFields);
+    $applicant = Applicant::create($formFields);
+    $applicant->faculty()->associate($request->faculty_id);
+    $applicant->program()->associate($request->programme_id);
     return redirect('/applicants')->with('message',"Student:  registered successfully!");
-
 }
 
 public function edit(Applicant $applicant)
 {
-    return view('applicants.edit',['applicant'=>$applicant]);
+    return view('applicants.edit',[
+    'applicant'=>$applicant,
+    'faculties'=> Faculty::all(),
+    'studyprograms'=> StudyProgram::all()
+]); 
 }
 
 
@@ -49,11 +58,11 @@ public function update(Request $request, Applicant $applicant)
 {
     $formFields= $request->validate([
         'name'=> 'required',
-        'LastName'=>'required',
-        'studentId'=>'required',
-        'faculty'=>'required',
-        'Programme'=>'required',
-        'Academic_Year'=>'required',
+        'lastname'=>'required',
+        'studentID'=>'required',
+        'faculty_id'=>'required',
+        'programme_id'=>'required',
+        'academic_year'=>'required',
         'email'=>['required', 'email'],
         'phone'=>'required',
         'status'=>'required',   
@@ -61,8 +70,6 @@ public function update(Request $request, Applicant $applicant)
 
     $applicant->update($formFields);
     return redirect('/applicants')->with('message', "Student: {$applicant['Name']} updated successfully!");
-    
-
 }
 
 
@@ -71,6 +78,5 @@ public function destroy(Applicant $applicant)
     $applicant->delete();
     return redirect('/applicants')->with('message',"Student: {$applicant['Name']} deleted successfully!");
 }
-
 }
 

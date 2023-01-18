@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">  
 
 <style>
-input[type=text], select, textarea{
+input[type=text],input[type=number], select, textarea{
   width: 100%;
   padding: 12px;
   border: 1px solid #ccc;
@@ -104,7 +104,7 @@ body {
         <label for="name">Name</label>
       </div>
       <div class="col-75">
-        <input type="text" name="name"   size="15" required value="{{$applicant['Name']}}"/>  
+        <input type="text" name="name"   size="15" required value="{{$applicant['name']}}"/>  
       </div>
     </div>
     @error('name')
@@ -114,13 +114,13 @@ body {
 
     <div class="row">
       <div class="col-25">
-        <label for="LastName">Last Name</label>
+        <label for="lastname">Last Name</label>
       </div>
       <div class="col-75">
-      <input type="text" name="LastName"   size="15" required value="{{$applicant['LastName']}}"/> 
+      <input type="text" name="lastname"   size="15" required value="{{$applicant['lastname']}}"/> 
       </div>
     </div>
-    @error('LastName')
+    @error('lastname')
     <p class="text-red-500 text-xs mt-1">{{$message}}</p>
     @enderror
 
@@ -129,12 +129,12 @@ body {
 
     <div class="row">
       <div class="col-25">
-        <label for="studentId">Student ID</label>
+        <label for="studentID">Student ID</label>
       </div>
       <div class="col-75">
-      <input type="text" name="studentId"   size="15" required value="{{$applicant['StudentID']}}"/>       </div>
+      <input type="text" name="studentID"   size="15" required value="{{$applicant['studentID']}}"/>       </div>
     </div>
-    @error('studentId')
+    @error('studentID')
     <p class="text-red-500 text-xs mt-1">{{$message}}</p>
     @enderror
 
@@ -144,14 +144,11 @@ body {
         <label for="faculty">Faculty</label>
       </div>
       <div class="col-75">
-      <select id="faculty" name="faculty">
-        <option value="Faculty" <?php echo old('faculty', $applicant['Faculty']) == 'Faculty' ? 'selected' : '' ?>>Faculty</option>  
-        <option value="CST" <?php echo old('faculty', $applicant['Faculty']) == 'CST' ? 'selected' : '' ?>>CST</option>  
-        <option value="Business" <?php echo old('faculty', $applicant['Faculty']) == 'Business' ? 'selected' : '' ?>>Business</option>  
-        <option value="Law" <?php echo old('faculty', $applicant['Faculty']) == 'Law' ? 'selected' : '' ?>>Law</option>  
-        <option value="Social Science" <?php echo old('faculty', $applicant['Faculty']) == 'Social Science' ? 'selected': ''?>>Social Science </option>
-        <option value="Language" <?php echo old('faculty', $applicant['Faculty']) == 'Language' ? 'selected' : '' ?>>Language and Communications</option>  
-        </select>
+      <select id="faculty" name="faculty_id">
+        @foreach ($faculties as $faculty) 
+          <option value="{{$faculty->id}}" <?php echo old('faculty_id', $applicant['faculty_id']) == $faculty->id ? 'selected' : '' ?>>{{$faculty->name}}</option> 
+          @endforeach
+      </select>
       </div>
     </div>
     @error('faculty')
@@ -164,26 +161,11 @@ body {
         <label for="studyProgramme">Study Programme</label>
       </div>
       <div class="col-75">
-      <select id="Programme" name="Programme" value="{{$applicant['Programme']}}" >
-     
-     <option value="Study Programme" <?php echo old('Programme', $applicant['Programme']) == 'Study Programme' ? 'selected' : '' ?>>Study Programme</option>      
-     <option value="Software Engineer" <?php echo old('Programme', $applicant['Programme']) == 'SoftwareEngineer' ? 'selected' : '' ?> >Software Engineer</option>  
-     
-     <option value="Computer Science" <?php echo old('Programme', $applicant['Programme']) == 'Computer Science' ? 'selected' : '' ?>  >Computer Science</option>  
-     <option value="Digital Design" <?php echo old('Programme', $applicant['Programme']) == 'Digital Design' ? 'selected' : '' ?> >Digital Design</option>  
-     <option value="Legal Studies"<?php echo old('Programme', $applicant['Programme']) == 'Legal Studies' ? 'selected' : '' ?> >Legal Studies</option>  
-     <option value="Civil Law"<?php echo old('Programme', $applicant['Programme']) == 'Civil Law' ? 'selected' : '' ?> >Civil Law</option>  
-     <option value="Criminal Law"<?php echo old('Programme', $applicant['Programme']) == 'Criminal Law' ? 'selected' : '' ?> >Criminal Law</option> 
-     <option value="German language and Literature"<?php echo old('Programme', $applicant['Programme']) == 'German language and Literature' ? 'selected' : '' ?> >German language and Literature</option>  
-     <option value="International communication"<?php echo old('Programme', $applicant['Programme']) == 'International communication' ? 'selected' : '' ?> >International communication</option>  
-     <option value="English language and Literature"<?php echo old('Programme', $applicant['Programme']) == 'English language and Literature' ? 'selected' : '' ?> >English langiage and Literature</option>  
-     <option value="Social work and Social Policy"<?php echo old('Programme', $applicant['Programme']) == 'Social work and Social Policy' ? 'selected' : '' ?> >Social work and Social Policy</option>  
-     <option value="Political Science"<?php echo old('Programme', $applicant['Programme  ']) == 'Political Science' ? 'selected' : '' ?> >Political Science</option>  
-     <option value="Public Management"<?php echo old('Programme', $applicant['Programme ']) == 'Public Management' ? 'selected' : '' ?> >Public Management</option> 
-     <option value="Marketing and Management"<?php echo old('Programme', $applicant['Programme']) == 'Marketing and Management' ? 'selected' : '' ?> >Marketing and Management</option>  
-     <option value="Finance"<?php echo old('Programme', $applicant['Programme']) == 'Finance' ? 'selected' : '' ?> >Finance</option>  
-     <option value="Marketing and Innovation" <?php echo old('Programme', $applicant['Programme']) == 'Marketing and Innovation' ? 'selected' : '' ?>> Marketing and Innovation</option>  
-     </select>
+        <select id="Programme" name="programme_id" value="{{$applicant['programme_id']}}" >
+          @foreach ($studyprograms as $studyprograms)
+          <option value="{{$studyprograms->id}}"<?php echo old('programme_id', $applicant['programme_id']) == $studyprograms->id ? 'selected' : '' ?>>{{$studyprograms->name}}</option>
+        @endforeach  
+        </select>
       </div>
     </div>
     @error('studyProgramme')
@@ -196,16 +178,16 @@ body {
         <label for="registrationAcademicYear">Registeration Academic Year</label>
       </div>
       <div class="col-75">
-      <select id="registrationAcademicYear" name="Academic_Year" >
-          <option value="AcademicYear"  <?php echo old('Academic_Year', $applicant['Academic_Year']) == 'AcademicYear' ? 'selected' : '' ?>> Academic Year</option>
-          <option value="16/17" <?php echo old('Academic_Year', $applicant['Academic_Year']) == '16/17' ? 'selected' : '' ?>>16/17</option>  
-          <option value="17/18"<?php echo old('Academic_Year', $applicant['Academic_Year']) == '17/18' ? 'selected' : '' ?>>17/18</option>  
-          <option value="18/19"<?php echo old('Academic_Year', $applicant['Academic_Year']) == '18/19' ? 'selected' : '' ?>>18/19</option>  
-          <option value="19/20"<?php echo old('Academic_Year', $applicant['Academic_Year']) == '19/20' ? 'selected' : '' ?>>19/20</option>  
-          <option value="20/21"<?php echo old('Academic_Year', $applicant['Academic_Year']) == '20/21' ? 'selected' : '' ?>>20/21</option>  
-          <option value="21/22"<?php echo old('Academic_Year', $applicant['Academic_Year']) == '21/22' ? 'selected' : '' ?>>21/22</option> 
-          <option value="22/23"<?php echo old('Academic_Year', $applicant['Academic_Year']) == '22/23' ? 'selected' : '' ?>>22/23</option>  
-          <option value="23/24"<?php echo old('Academic_Year', $applicant['Academic_Year']) == '23/24' ? 'selected' : '' ?>>23/24</option> 
+      <select id="registrationAcademicYear" name="academic_year" >
+          <option value="AcademicYear"  <?php echo old('academic_year', $applicant['academic_year']) == 'AcademicYear' ? 'selected' : '' ?>> Academic Year</option>
+          <option value="16/17" <?php echo old('academic_year', $applicant['academic_year']) == '16/17' ? 'selected' : '' ?>>16/17</option>  
+          <option value="17/18"<?php echo old('academic_year', $applicant['academic_year']) == '17/18' ? 'selected' : '' ?>>17/18</option>  
+          <option value="18/19"<?php echo old('academic_year', $applicant['academic_year']) == '18/19' ? 'selected' : '' ?>>18/19</option>  
+          <option value="19/20"<?php echo old('academic_year', $applicant['academic_year']) == '19/20' ? 'selected' : '' ?>>19/20</option>  
+          <option value="20/21"<?php echo old('academic_year', $applicant['academic_year']) == '20/21' ? 'selected' : '' ?>>20/21</option>  
+          <option value="21/22"<?php echo old('academic_year', $applicant['academic_year']) == '21/22' ? 'selected' : '' ?>>21/22</option> 
+          <option value="22/23"<?php echo old('academic_year', $applicant['academic_year']) == '22/23' ? 'selected' : '' ?>>22/23</option>  
+          <option value="23/24"<?php echo old('academic_year', $applicant['academic_year']) == '23/24' ? 'selected' : '' ?>>23/24</option> 
             </select>
       </div>
     </div>
@@ -219,7 +201,7 @@ body {
         <label for="email">Email</label>
       </div>
       <div class="col-75">
-      <input type="text" name="email"  size="15" required value="{{$applicant['Email']}}"/>   
+      <input type="text" name="email"  size="15" required value="{{$applicant['email']}}"/>   
       </div>
     </div>
     @error('email')
@@ -232,7 +214,7 @@ body {
         <label for="phone">Phone</label>
       </div>
       <div class="col-75"> 
-      <input type="text" name="phone"   size="10" required value="{{$applicant['Phone']}}">
+      <input type="text" name="phone"   size="10" required value="{{$applicant['phone']}}">
       
       </div>
     </div>

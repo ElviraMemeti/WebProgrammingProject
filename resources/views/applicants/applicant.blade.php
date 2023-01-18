@@ -54,35 +54,35 @@
                   <tr class="bg-white border-b">
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{$applicant['id']}}</td>
                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        {{$applicant['Name']}}
+                        {{$applicant['name']}}
                     </td>
                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        {{$applicant['LastName']}}
+                        {{$applicant['lastname']}}
                     </td>
 
                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        {{$applicant['StudentID']}}
+                        {{$applicant['studentID']}}
                     </td>
                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                        {{$applicant['Faculty']}}
+                        {{$applicant->faculty->name}}
                     </td>
                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    {{$applicant['Programme']}}
+                    {{$applicant->program->name}}
                     </td>
                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    {{$applicant['Academic_Year']}}
+                    {{$applicant['academic_year']}}
                     </td>
                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    {{$applicant['Email']}}
+                    {{$applicant['email']}}
                     </td>
                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    {{$applicant['Phone']}}
+                    {{$applicant['phone']}}
                     </td>
                     <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    {{$applicant['Status']}}
+                    {{$applicant['status']}}
                     </td>
                     <td style=" position: relative" class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    <a href="{{ route('applicants', $applicant->StudentID) }}"
+                    <a href="{{ route('applicants', $applicant->studentID) }}"
                         class="text-indigo-600 hover:text-indigo-900">
                         <x-svg.view/>
                     </a>

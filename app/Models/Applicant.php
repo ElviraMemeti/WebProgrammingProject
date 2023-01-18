@@ -9,9 +9,17 @@ class Applicant extends Model
 {
     use HasFactory;
     protected $table='applicants';
-    protected $fillable =['name','LastName','studentId','faculty','Programme',
-     'Academic_Year','email','phone', 'status'];
+    protected $fillable =['name','lastname','studentID','faculty_id','programme_id',
+     'academic_year','email','phone', 'status'];
 
+     public function faculty(){
+        return $this->belongsTo(Faculty::class);
+
+    }
+    public function program(){
+        return $this->belongsTo(StudyProgram::class,'programme_id');
+
+    }
 
 
 

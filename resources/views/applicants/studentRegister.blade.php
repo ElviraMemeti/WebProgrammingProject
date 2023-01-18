@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">  
 
 <style>
-input[type=text], select, textarea{
+input[type=text],input[type=number], select, textarea{
   width: 100%;
   padding: 12px;
   border: 1px solid #ccc;
@@ -113,13 +113,13 @@ body {
 
     <div class="row">
       <div class="col-25">
-        <label for="LastName">Last Name</label>
+        <label for="lastname">Last Name</label>
       </div>
       <div class="col-75">
-        <input type="text" name="LastName" placeholder= "Last Name" size="15" required /> 
+        <input type="text" name="lastname" placeholder= "Last Name" size="15" required /> 
       </div>
     </div>
-    @error('LastName')
+    @error('lastname')
     <p class="text-red-500 text-xs mt-1">{{$message}}</p>
     @enderror
 
@@ -129,13 +129,13 @@ body {
 
     <div class="row">
       <div class="col-25">
-        <label for="studentId">Student ID</label>
+        <label for="studentID">Student ID</label>
       </div>
       <div class="col-75">
-        <input type="text" name="studentId" placeholder="Student Id" size="15" required />   
+        <input type="number" name="studentID" placeholder="Student Id" size="15" required />   
       </div>
     </div>
-    @error('studentId')
+    @error('studentID')
     <p class="text-red-500 text-xs mt-1">{{$message}}</p>
     @enderror
 
@@ -145,14 +145,12 @@ body {
         <label for="faculty">Faculty</label>
       </div>
       <div class="col-75">
-        <select id="faculty" name="faculty">
+        <select id="faculty" name="faculty_id">
         <label> Faculty </label>   
-        <option value="Faculty">Faculty</option>  
-        <option value="CST">CST</option>  
-        <option value="Business">Business</option>  
-        <option value="Law">Law</option>  
-        <option value="SocialScience">Social Science</option>  
-        <option value="Language">Language and Communications</option>  
+        <option value="">Faculty</option>  
+        @foreach ($faculties as $faculty) 
+          <option value="{{$faculty->id}}">{{$faculty->name}}</option> 
+          @endforeach
         </select>
       </div>
     </div>
@@ -163,31 +161,19 @@ body {
 
     <div class="row">
       <div class="col-25">
-        <label for="studyProgramme">Study Programme</label>
+        <label for="programme">Study Programme</label>
       </div>
       <div class="col-75">
-        <select id="studyProgramme" name="Programme">
+        <select id="programme" name="programme_id" class="dynamic-select">
         <label> Study programme </label> 
-          <option value="Study Programme">Study Programme</option>      
-          <option value="Software Engineer">Software Engineer</option>  
-          <option value="Computer Science">Computer Science</option>  
-          <option value="Digital Design">Digital Design</option>  
-          <option value="Legal Studies">Legal Studies</option>  
-          <option value="Civil Law">Civil Law</option>  
-          <option value="Criminal Law">Criminal Law</option> 
-          <option value="German language and Literature">German language and Literature</option>  
-          <option value="International communication">International communication</option>  
-          <option value="English language and Literature">English langiage and Literature</option>  
-          <option value="Social work and Social Policy">Social work and Social Policy</option>  
-          <option value="Political Science">Political Science</option>  
-          <option value="Public Management">Public Management</option> 
-          <option value="Marketing and Management">Marketing and Management</option>  
-          <option value="Finance">Finance</option>  
-          <option value="Marketing and Innovation"> Marketing and Innovation</option>  
+          <option value="" faculty-id="">Study Programme</option>      
+          @foreach ($studyprograms as $studyprograms)
+              <option value="{{$studyprograms->id}}" faculty-id='{{$studyprograms->faculty_id}}' >{{$studyprograms->name}}</option>
+          @endforeach
           </select>
       </div>
     </div>
-    @error('studyProgramme')
+    @error('programme')
     <p class="text-red-500 text-xs mt-1">{{$message}}</p>
     @enderror
   
@@ -197,7 +183,7 @@ body {
         <label for="registrationAcademicYear">Registeration Academic Year</label>
       </div>
       <div class="col-75">
-        <select id="registrationAcademicYear" name="Academic_Year">
+        <select id="registrationAcademicYear" name="academic_year">
         <option value="AcademicYear"> Academic Year</option>
         <option value="16/17">16/17</option>  
         <option value="17/18">17/18</option>  
@@ -264,8 +250,24 @@ body {
   </div>
   </body>
   </form> 
-
-
-
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      let programselect = $(".dynamic-select");
+      $options = programselect.children();
+      
+      $('#faculty').change( function() {
+      
+        if($(this).val() != ''){
+            let selectedfaculty = $(this).val() 
+            // console.log($('#programme option[faculty-id="' + 1 + '"]'));
+            $options.each(function(index),use(selectedfaculty){
+              // console.log($(this).attr('faculty-id'));
+              console.log(selectedfaculty);
+          })
+        }
+      })
+    })
+  </script>
 </html>
 </x-layout>

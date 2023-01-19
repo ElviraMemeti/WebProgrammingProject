@@ -253,20 +253,31 @@ body {
   <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
   <script>
     $(document).ready(function () {
-      let programselect = $(".dynamic-select");
-      $options = programselect.children();
+        const programmeSelect = document.getElementById("programme");
+        const facultyselect = document.getElementById("faculty");
       
-      $('#faculty').change( function() {
-      
-        if($(this).val() != ''){
-            let selectedfaculty = $(this).val() 
-            // console.log($('#programme option[faculty-id="' + 1 + '"]'));
-            $options.each(function(index),use(selectedfaculty){
-              // console.log($(this).attr('faculty-id'));
-              console.log(selectedfaculty);
-          })
-        }
-      })
+        facultyselect.addEventListener("change", function() {
+            // Get the selected faculty's id
+            let selectedFacultyId = $(this).val()
+            
+            // Get all the options in the select element
+            const options = programmeSelect.querySelectorAll("option");
+            
+            // Iterate through the options
+            for (let i = 0; i < options.length; i++) {
+                
+              // Get the faculty id of the current option
+              const facultyId = options[i].getAttribute("faculty-id");
+                
+              // If the current option is the default option or the faculty id of the current option matches the selected faculty's id, show the option
+                if (facultyId === selectedFacultyId) {
+                    options[i].style.display = "block";
+                } else {
+                    // Otherwise, hide the option
+                    options[i].style.display = "none";
+                }
+            }
+          });
     })
   </script>
 </html>

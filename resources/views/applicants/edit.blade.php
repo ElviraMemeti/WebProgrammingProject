@@ -163,7 +163,7 @@ body {
       <div class="col-75">
         <select id="Programme" name="programme_id" value="{{$applicant['programme_id']}}" >
           @foreach ($studyprograms as $studyprograms)
-          <option value="{{$studyprograms->id}}"<?php echo old('programme_id', $applicant['programme_id']) == $studyprograms->id ? 'selected' : '' ?>>{{$studyprograms->name}}</option>
+          <option faculty-id='{{$studyprograms->faculty_id}}' value="{{$studyprograms->id}} "<?php echo old('programme_id', $applicant['programme_id']) == $studyprograms->id ? 'selected' : '' ?>>{{$studyprograms->name}}</option>
         @endforeach  
         </select>
       </div>
@@ -245,7 +245,36 @@ body {
   </div>
   </body>
   </form> 
-
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+  <script>
+    $(document).ready(function () {
+        const programmeSelect = document.getElementById("Programme");
+        const facultyselect = document.getElementById("faculty");
+      
+        facultyselect.addEventListener("change", function() {
+            // Get the selected faculty's id
+            let selectedFacultyId = $(this).val()
+            
+            // Get all the options in the select element
+            const options = programmeSelect.querySelectorAll("option");
+            
+            // Iterate through the options
+            for (let i = 0; i < options.length; i++) {
+                
+              // Get the faculty id of the current option
+              const facultyId = options[i].getAttribute("faculty-id");
+                
+              // If the current option is the default option or the faculty id of the current option matches the selected faculty's id, show the option
+                if (facultyId === selectedFacultyId) {
+                    options[i].style.display = "block";
+                } else {
+                    // Otherwise, hide the option
+                    options[i].style.display = "none";
+                }
+            }
+          });
+    })
+  </script>
 
 
 </html>

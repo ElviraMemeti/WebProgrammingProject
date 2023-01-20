@@ -82,7 +82,7 @@
                     {{$applicant['status']}}
                     </td>
                     <td style=" position: relative" class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    <a href="{{ route('applicants', $applicant->studentID) }}"
+                    <a href="/applicants/studentprogres/{{$applicant->id}}"
                         class="text-indigo-600 hover:text-indigo-900">
                         <x-svg.view/>
                     </a>

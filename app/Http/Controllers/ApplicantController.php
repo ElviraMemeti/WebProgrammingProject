@@ -7,6 +7,7 @@ use App\Models\Faculty;
 use App\Models\StudyProgram;
 use App\Models\Teachers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 
 class ApplicantController extends Controller
@@ -39,6 +40,8 @@ public function store(Request $request)
         'phone'=>'required',
         'status'=>'required',   
     ]);
+    $formFields['debt']=rand(0,1);
+    $formFields['exams_passed']=rand(1,10);
     $applicant = Applicant::create($formFields);
     $applicant->faculty()->associate($request->faculty_id);
     $applicant->program()->associate($request->programme_id);
@@ -47,9 +50,6 @@ public function store(Request $request)
 
 public function edit(Applicant $applicant)
 {
-    $teacher = Teachers::find(1);
-    dd($teacher->faculty);
-
     return view('applicants.edit',[
     'applicant'=>$applicant,
     'faculties'=> Faculty::all(),
@@ -57,7 +57,6 @@ public function edit(Applicant $applicant)
 
 ]); 
 }
-
 
 public function update(Request $request, Applicant $applicant)
 {
@@ -82,6 +81,26 @@ public function destroy(Applicant $applicant)
 {
     $applicant->delete();
     return redirect('/applicants')->with('message',"Student: {$applicant['Name']} deleted successfully!");
+}
+
+public function studentprogres(Applicant $applicant)
+{
+    $teacher = Teachers::where("faculty_id" , $applicant->faculty_id)->first();
+
+    return view('applicants.studentprogres',[
+        'applicant'=> $applicant , 
+        'teacher'=> $teacher
+    ]);
+}
+public function updatestudentprogres(Request $request , Applicant $applicant){
+    
+    $request->validate([
+        'file' => 'mimes:docx,doc|max:2048',
+    ]);
+    $fileName = $request->file->getClientOriginalName();
+    $filePath = $applicant->name.'-'.$applicant->studentID.'/'.$fileName;
+    $path = Storage::disk('public')->put($filePath, file_get_contents($request->file));
+    $path = Storage::disk('public')->url($path);
 }
 }
 

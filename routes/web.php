@@ -32,6 +32,9 @@ Route::get('/applicants/studentRegister', [ApplicantController::class, 'studentR
 //store students data
 Route::post('/applicants', [ApplicantController::class, 'store']);
 
+Route::get('/applicants/studentprogres/{applicant}', [ApplicantController::class, 'studentprogres']);
+Route::post('/applicants/studentprogres/{applicant}', [ApplicantController::class, 'updatestudentprogres'])->name('studentprogress.file');
+
 
 
 //edit form

@@ -24,8 +24,18 @@ return new class extends Migration
         $table->String('email');
         $table->String('phone');
         $table->String('status');
+        $table->integer('exams_passed');
+        $table->boolean('review')->nullable();
+        $table->boolean('coordinator')->nullable();
+        $table->boolean('deansoffice')->nullable();
+        $table->boolean('director')->nullable();
+        $table->boolean('defense')->nullable();
+        $table->boolean('notify')->nullable();
+        $table->boolean('debt');
+        $table->boolean('debt_status')->nullable();
+        
         $table->timestamps();
-
+        
         $table->foreign('faculty_id')
         ->references('id')->on('faculties')->onDelete('cascade');
 

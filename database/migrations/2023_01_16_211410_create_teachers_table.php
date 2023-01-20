@@ -16,7 +16,11 @@ return new class extends Migration
         Schema::create('teachers', function (Blueprint $table) {
             $table->increments('id');
             $table->String('name');
+            $table->integer('faculty_id')->unsigned();
             $table->timestamps();
+
+            $table->foreign('faculty_id')
+            ->references('id')->on('faculties')->onDelete('cascade');
         });
     }
 

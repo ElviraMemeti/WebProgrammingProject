@@ -39,14 +39,10 @@ class DatabaseSeeder extends Seeder
             ['name' => 'Marketing and Innovation' , 'faculty_id'=>2],
         ]);
         DB::table('teachers')->insert([
-            ['name' => 'Florije Ismaili'],
-            ['name' => 'Azir Aliu'],
-            ['name' => 'Mentor Hamiti'],
-            ['name' => 'Agron Caushi'],
-            ['name' => 'Besnik Selimi'],
-            ['name' => 'Irfan Shaqiri'],
-            ['name' => 'Nuhi Besimi'],
-            ['name' => 'Mennan Selimi'],
+            ['name' => 'Florije Ismaili' , 'faculty_id'=>1],
+            ['name' => 'Azir Aliu' , 'faculty_id'=>2],
+            ['name' => 'Mentor Hamiti' , 'faculty_id'=>3],
+            ['name' => 'Agron Caushi' , 'faculty_id'=>4],
         ]);
     }
 }

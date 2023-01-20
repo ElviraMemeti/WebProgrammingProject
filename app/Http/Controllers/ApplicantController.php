@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Applicant;
 use App\Models\Faculty;
 use App\Models\StudyProgram;
+use App\Models\Teachers;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -46,10 +47,14 @@ public function store(Request $request)
 
 public function edit(Applicant $applicant)
 {
+    $teacher = Teachers::find(1);
+    dd($teacher->faculty);
+
     return view('applicants.edit',[
     'applicant'=>$applicant,
     'faculties'=> Faculty::all(),
     'studyprograms'=> StudyProgram::all()
+
 ]); 
 }
 

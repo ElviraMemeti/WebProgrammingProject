@@ -33,6 +33,10 @@ return new class extends Migration
         $table->boolean('notify')->nullable();
         $table->boolean('debt');
         $table->boolean('debt_status')->nullable();
+        $table->string('transcript')->nullable();
+        $table->string('presentation1')->nullable();
+        $table->string('presentation2')->nullable();
+        $table->string('evidence')->nullable();
         
         $table->timestamps();
         

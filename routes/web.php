@@ -3,6 +3,7 @@
 use App\Http\Controllers\ApplicantController;
 use App\Models\Applicant;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DownloadController;
 
 
 // use App\Models\Applicant;
@@ -35,7 +36,15 @@ Route::post('/applicants', [ApplicantController::class, 'store']);
 Route::get('/applicants/studentprogres/{applicant}', [ApplicantController::class, 'studentprogres']);
 Route::post('/applicants/studentprogres/{applicant}', [ApplicantController::class, 'updatestudentprogres'])->name('studentprogress.file');
 
+Route::post('/applicants/transcriptupdate/{applicant}', [ApplicantController::class, 'transcriptupdate'])->name('studentprogres.transcript');
 
+Route::post('/applicants/completedebt/{applicant}', [ApplicantController::class, 'completedebt'])->name('studentprogres.completedebt');
+Route::post('/applicants/rejectdebt/{applicant}', [ApplicantController::class, 'rejectdebt'])->name('studentprogres.rejectdebt');
+
+Route::get('downloadtranscript', [DownloadController::class, 'downloadtranscript'])->name('downloadtranscript');
+Route::get('firstpresentationdownload', [DownloadController::class, 'firstpresentationdownload'])->name('firstpresentationdownload');
+Route::get('secondpresentationdownload', [DownloadController::class, 'secondpresentationdownload'])->name('secondpresentationdownload');
+Route::get('evidencedownload', [DownloadController::class, 'evidencedownload'])->name('evidencedownload');
 
 //edit form
 Route::get('/applicants/{applicant}/edit',[ApplicantController::class, 'edit']);

@@ -10,7 +10,9 @@ class Applicant extends Model
     use HasFactory;
     protected $table='applicants';
     protected $fillable =['name','lastname','studentID','faculty_id','programme_id',
-     'academic_year','email','phone', 'status' , 'exams_passed' , 'review' , 'coordinator' , 'deansoffice' , 'director' , 'defense' , 'notify' , 'debt' , 'debt_status'];
+     'academic_year','email','phone', 'status' , 'exams_passed' , 'review' , 'coordinator' ,
+      'deansoffice' , 'director' , 'defense' , 'notify' , 'debt' , 'debt_status' , 'transcript' ,
+       'presentation1' , 'presentation2' , 'evidence'];
 
      public function faculty(){
         return $this->belongsTo(Faculty::class);

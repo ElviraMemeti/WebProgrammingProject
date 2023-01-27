@@ -12,7 +12,9 @@ class Applicant extends Model
     protected $fillable =['name','lastname','studentID','faculty_id','programme_id',
      'academic_year','email','phone', 'status' , 'exams_passed' , 'review' , 'coordinator' ,
       'deansoffice' , 'director' , 'defense' , 'notify' , 'debt' , 'debt_status' , 'transcript' ,
-       'presentation1' , 'presentation2' , 'evidence'];
+       'presentation1' , 'presentation2' , 'evidence', 'approval' , 'defirstpresentation' , 
+       'progresreport' , 'desecondpresentation' , 'gradetranscript' , 'thesis' , 'plagiarism',
+        'mentorreport' , 'mr' , 'dissertation'];
 
      public function faculty(){
         return $this->belongsTo(Faculty::class);

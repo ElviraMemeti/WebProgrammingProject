@@ -37,6 +37,16 @@ return new class extends Migration
         $table->string('presentation1')->nullable();
         $table->string('presentation2')->nullable();
         $table->string('evidence')->nullable();
+        $table->string('approval')->nullable();
+        $table->string('defirstpresentation')->nullable();
+        $table->string('progresreport')->nullable();
+        $table->string('desecondpresentation')->nullable();
+        $table->string('gradetranscript')->nullable();
+        $table->string('thesis')->nullable();
+        $table->string('plagiarism')->nullable();
+        $table->string('mentorreport')->nullable();
+        $table->string('mr')->nullable();
+        $table->string('dissertation')->nullable();
         
         $table->timestamps();
         

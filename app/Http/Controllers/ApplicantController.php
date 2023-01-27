@@ -102,6 +102,15 @@ public function updatestudentprogres(Request $request , Applicant $applicant){
         'presentation1' => 'mimes:docx,doc|max:2048',
         'presentation2' => 'mimes:docx,doc|max:2048',
         'evidence' => 'mimes:docx,doc|max:2048',
+        'approval' => 'mimes:docx,doc|max:2048',
+        'defirstpresentation' => 'mimes:docx,doc|max:2048',
+        'progresreport' => 'mimes:docx,doc|max:2048',
+        'desecondpresentation' => 'mimes:docx,doc|max:2048',
+        'gradetranscript' => 'mimes:docx,doc|max:2048',
+        'thesis' => 'mimes:docx,doc|max:2048',
+        'plagiarism' => 'mimes:docx,doc|max:2048',
+        'mentorreport' => 'mimes:docx,doc|max:2048',
+        'mr' => 'mimes:docx,doc|max:2048',
     ]);
     
     $request->review == "on" ? $formFields['review'] = 1 : $formFields['review'] = 0;
@@ -224,7 +233,6 @@ public function rejectdebt(Request $request, Applicant $applicant){
 }
 
 public function transcriptupdate(Request $request, Applicant $applicant){
-    //dd($request->all());
     if($request->transcript != null){
         $applicant->update(["transcript" => null]);
     }

@@ -13,13 +13,11 @@ input[type=text],input[type=number], select, textarea{
   box-sizing: border-box;
   resize: vertical;
 }
-
 /* Style the label to display next to the inputs */
 label {
   padding: 12px 12px 12px 0;
   display: inline-block;
 }
-
 /* Style the submit button */
 input[type=submit] {
   background-color: skyblue;
@@ -31,7 +29,6 @@ input[type=submit] {
   margin-left: 70%;
   margin-top: 10px;
 }
-
 /* Style the cancel button */
 a[type=cancel] {
   background-color: skyblue;
@@ -41,40 +38,34 @@ a[type=cancel] {
   border-radius: 4px;
  
 }
-
 /* Style the container */
 .container {
   border-radius: 5px;
   background-color: #f2f2f2;
   padding: 20px;
 }
-
 /* Floating column for labels: 25% width */
 .col-25 {
   float: left;
   width: 25%;
   margin-top: 1px;
 }
-
 /* Floating column for inputs: 75% width */
 .col-75 {
   float: left;
   width: 60%;
   margin-top: 6px;
 }
-
 /* Clear floats after the columns */
 .row:after {
   content: "";
   display: table;
   clear: both;
 }
-
 .title{
   text-align:center;
   font-weight: bold;
   font-size: 25px;
-
 }
 /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {
@@ -86,7 +77,7 @@ a[type=cancel] {
 body {
   overflow: auto;
 }
- 
+
 
 </style>  
 </head>  

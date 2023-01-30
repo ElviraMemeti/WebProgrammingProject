@@ -83,21 +83,19 @@ a[type=cancel] {
     margin-top: 0;
   }
 }
-body {
-  overflow: auto;
-}
+
  
 
 </style>  
 </head>  
-<body  style=" overflow-x:auto " > 
+<body> 
 
      
   <form method="POST"  action="/applicants/{{$applicant->id}}" class="table-responsive">  
     @csrf
     @method("PUT")
 
-  <div class="container">
+  <div class="container ">
     
     <div class="row">
       <div class="col-25">

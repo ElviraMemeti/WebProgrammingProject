@@ -4,7 +4,7 @@
 
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+       
         <style>
             .teachername {
                 float: right;
@@ -124,14 +124,28 @@
                 margin: 4px 2px;
 
             }
+            
+           .divW{
+            width: auto;
+           }
+            
+            .scroll-container {
+                  height: 492px;
+                  width: auto;
+                  overflow-y: scroll;
+                }
+
+               
+
+
         </style>
     </head>
 
-    <body style=" overflow-x:auto ">
+    <body ><div class="scroll-container">
         <div class="flex flex-col">
-            <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div class=" sm:-mx-6 lg:-mx-8">
                 <div class="py-4 inline-block min-w-full sm:px-6 lg:px-8">
-                    <div class="overflow-x-auto ">
+                    <div class="divW ">
                         <h1>{{ $applicant->name }}({{ $applicant->studentID }})</h1>
                         <p class="teachername">{{ $teacher->name }}</p>
                         <p>{{ $applicant->faculty->name }}-{{ $applicant->program->name }}({{ $applicant->academic_year }})
@@ -367,7 +381,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>  </div>
     </body>
 
     </html>

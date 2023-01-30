@@ -35,7 +35,7 @@ class StudentRegistrationTest extends TestCase
     $data = [
         'name'=> 'Jessica',
         'LastName'=>'Joan',
-        'studentId'=>'08229211',
+        'studentId'=>'0811',
         'faculty'=>'CST',
         'Programme'=>'Computer Science',
         'Academic_Year'=>'20/21',
@@ -51,7 +51,7 @@ class StudentRegistrationTest extends TestCase
     $this->assertDatabaseHas('applicants', [
         'name'=> 'Jessica',
         'LastName'=>'Joan',
-        'studentId'=>'08229211',
+        'studentId'=>'0811',
         'faculty'=>'CST',
         'Programme'=>'Computer Science',
         'Academic_Year'=>'20/21',

@@ -22,11 +22,11 @@
       <div class="sidebar-header flex items-center justify-center py-4">
         <div class="inline-flex">
           <a href="#" class="inline-flex flex-row items-center">
-          <span><img  src="{{asset('images/logo.jpg')}}"/></span>
+          <span><img  src="{{ url('images/logo.png') }}"/></span>
             
           </a>
         </div>
-        <span class="leading-10 text-gray-100 text-2xl font-bold ml-1 uppercase">my-thesis</span>
+        <span class="leading-10 text-gray-100 text-2xl font-bold ml-1 uppercase">Project Web Programming</span>
       </div>
       <div class="sidebar-content px-4 py-6">
         <ul class="flex flex-col w-full">

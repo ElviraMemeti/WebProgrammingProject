@@ -124,6 +124,9 @@
                 margin: 4px 2px;
 
             }
+
+
+            /*----------------SCROLLBAR CSS---------------*/
             
            .divW{
             width: auto;
@@ -161,10 +164,48 @@
                   .divW{
                     width: 1040px;
                   }
+                  .label{
+                     
+                      padding: 8px;
+                      font-family: arial;
+                      font-weight: 100;
+                      font-size:small;
+                      text-align: center;
+                      color: black;
+                  }
 
+               .bgcolor{
+                background-color: gray;
+                    color: white;
+                    padding: 5px 10px;
+                    border: none;
+                    
+                    box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
+               }
 
-               
+               .fileClass{
+                
+                margin:10px;
+               }
 
+             
+
+               input[type=file]::file-selector-button {
+                 
+                  border: none;
+                  
+                  padding: 5px 10px;
+                  border-radius: 5px;
+                  color: black;
+                  cursor: pointer;
+                  transition: background .2s ease-in-out;
+                }
+
+                input[type=file]::file-selector-button:hover {
+                  background: lightgray;
+                }
+
+                
 
         </style>
     </head>
@@ -257,29 +298,38 @@
                         <form action="{{ route('studentprogress.file', $applicant->id) }}" method="POST"
                             enctype="multipart/form-data">
                             @csrf
+
+                            
                             <div class="review">
+                            <div>
+                            <div style="display: flex; align-items: center; width: 45%" >
+                              <label for="test" class="label bgcolor">Upload the Decision on the Approval of Thesis</label>
+                              <input class="fileClass" type="file" name="approval" id="approval">
+                            
+                              <p>{{ $applicant->approval }}</p>
+                              
+                              <a href="{{ route('approvaldownload', ['name' => $applicant->name, 'id' => $applicant->studentID]) }}"
+                              style="color:black;"  > <span class="glyphicon glyphicon-download"></span> </a>
+                          </div></div>
+                            
+
                                 <label for="review">Review and Approval of the Doctoral Dissertation Plan</label>
                                 <input type="checkbox" name="review" id="review"
                                     {{ $applicant->review == 1 ? 'checked' : '' }}>
                             </div>
-                            <div class="linee">
-                                <p>Please click Complete if the student has no debt and upload the transcript. If not
-                                    please select Reject</p>
-                            </div>
-                            <div>
-                                <button class="button button1" type="submit" form="completedebt">Complete</button> 
-                                <button class="button button2" type="submit" form="rejectdebt">Reject</button>
-                            </div>
-                            <div>
-                                <label for="defense">Starting Procedure for Disseration Defense</label>
-                                <input type="checkbox" name="defense" id="defense"
-                                    {{ $applicant->defense == 1 ? 'checked' : '' }}>
-                            </div>
-                            <div>
-                                <label for="notify">Notify Doctoral School to approve</label>
-                                <input type="checkbox" name="notify" id="notify"
-                                    {{ $applicant->notify == 1 ? 'checked' : '' }}>
-                            </div>
+                           <br>
+
+                           <div >
+                                <div style="display: flex; align-items: center; width: 45%" >
+                                <label  for="test" class="label bgcolor"  style="display: inline-block; width: 45%;">Upload First Presentation</label>
+                                <input class="inputfile"  type="file" name="presentation1" id="presentation1" style="display: inline-block width- 45%;  margin-left:10px;">
+                                
+                                <p>{{ $applicant->presentation1 }}</p>
+                                 
+                                <a href="{{ route('firstpresentationdownload', ['name' => $applicant->name, 'id' => $applicant->studentID]) }}"
+                                style="color:black;"  > <span class="glyphicon glyphicon-download"></span> </a>
+                            </div></div>
+
                             <div>
                                 <label for="coordinator">Coordinator of the PhD</label>
                                 <input type="checkbox" name="coordinator" id="coordinator"
@@ -295,116 +345,247 @@
                                 <input type="checkbox" name="director" id="director"
                                     {{ $applicant->director == 1 ? 'checked' : '' }}>
                             </div>
-                            <div>
 
-                                <label for="test">Upload Transcript</label>
-                                <input type="file" name="transcript" id="transcript">
-                                <p>{{ $applicant->transcript }}</p>
-                                <input type="submit" form="transcriptform" value="delete">
-                            </div>
-                            <div>
 
-                                <label for="test">Upload First Presentation</label>
-                                <input type="file" name="presentation1" id="presentation1">
-                                <p>{{ $applicant->presentation1 }}</p>
-                                <input type="submit" form="presentationform" value="delete">
-                                <a href="{{ route('firstpresentationdownload', ['name' => $applicant->name, 'id' => $applicant->studentID]) }}"
-                                    class="btn btn-primary">Download first presantation here</a>
-                            </div>
                             <div>
-                                <label for="test">Upload Second Presentation</label>
-                                <input type="file" name="presentation2" id="presentation2">
-                                <p>{{ $applicant->presentation2 }}</p>
-                                <input type="submit" form="presentationform2" value="delete">
-                                <a href="{{ route('secondpresentationdownload', ['name' => $applicant->name, 'id' => $applicant->studentID]) }}"
-                                    class="btn btn-primary">Download second presantation here</a>
-                            </div>
-                            <div>
-                                <label for="test">Evidence for presentation at conferences</label>
-                                <input type="file" name="evidence" id="evidence">
-                                <p>{{ $applicant->evidence }}</p>
-                                <input type="submit" form="evidenceform" value="delete">
-                                <a href="{{ route('evidencedownload', ['name' => $applicant->name, 'id' => $applicant->studentID]) }}"
-                                    class="btn btn-primary">Download Evidence for presentation at conferences</a>
-                            </div>
-                            <div>
-                              <label for="test">Upload the Decision on the Approval of Thesis</label>
-                              <input type="file" name="approval" id="approval">
-                              <p>{{ $applicant->approval }}</p>
-                              <input type="submit" form="approvalform" value="delete">
-                              <a href="{{ route('approvaldownload', ['name' => $applicant->name, 'id' => $applicant->studentID]) }}"
-                                  class="btn btn-primary">Download the Decision on the Approval of Thesis</a>
-                          </div>
-                            <div>
-                              <label for="test">Upload The Decision of the First Presentation</label>
-                              <input type="file" name="defirstpresentation" id="defirstpresentation">
+                            <div style="display: flex; align-items: center; width: 45%" >
+                              <label for="test" class="label bgcolor">Upload The Decision of the First Presentation</label>
+                              <input class="fileClass" type="file" name="defirstpresentation" id="defirstpresentation">
+                            
                               <p>{{ $applicant->defirstpresentation }}</p>
-                              <input type="submit" form="defirstpresentationform" value="delete">
                               <a href="{{ route('defirstpresentationdownload', ['name' => $applicant->name, 'id' => $applicant->studentID]) }}"
-                                  class="btn btn-primary">Download the Decision of the First Presentation</a>
-                          </div>
+                              style="color:black;"  ><span class="glyphicon glyphicon-download"></span> </a>
+                          </div></div>
+
                             <div>
-                              <label for="test">Upload First Progress Report</label>
-                              <input type="file" name="progresreport" id="progresreport">
+                            <div style="display: flex; align-items: center; width: 45%" >
+                              <label for="test" class="label bgcolor">Upload First Progress Report</label>
+                              <input class="fileClass" type="file" name="progresreport" id="progresreport">
+                           
                               <p>{{ $applicant->progresreport }}</p>
-                              <input type="submit" form="progresreportform" value="delete">
+                               
                               <a href="{{ route('progresreportndownload', ['name' => $applicant->name, 'id' => $applicant->studentID]) }}"
-                                  class="btn btn-primary">Download First Progress Report</a>
-                          </div>
-                            <div>
-                              <label for="test">Upload The Decision of the Second Presentation</label>
-                              <input type="file" name="desecondpresentation" id="desecondpresentation">
-                              <p>{{ $applicant->desecondpresentation }}</p>
-                              <input type="submit" form="desecondpresentationform" value="delete">
-                              <a href="{{ route('desecondpresentationndownload', ['name' => $applicant->name, 'id' => $applicant->studentID]) }}"
-                                  class="btn btn-primary">Download the Decision of the Second Presentation</a>
-                          </div>
-                            <div>
-                              <label for="test">Transcript of grades</label>
-                              <input type="file" name="gradetranscript" id="gradetranscript">
-                              <p>{{ $applicant->gradetranscript }}</p>
-                              <input type="submit" form="gradetranscriptform" value="delete">
-                              <a href="{{ route('gradetranscriptndownload', ['name' => $applicant->name, 'id' => $applicant->studentID]) }}"
-                                  class="btn btn-primary">Download Transcript of grades</a>
-                          </div>
-                            <div>
-                              <label for="test">Upload Thesis Documentation</label>
-                              <input type="file" name="thesis" id="thesis">
-                              <p>{{ $applicant->thesis }}</p>
-                              <input type="submit" form="thesisform" value="delete">
-                              <a href="{{ route('thesisndownload', ['name' => $applicant->name, 'id' => $applicant->studentID]) }}"
-                                  class="btn btn-primary">Download Thesis Documentation</a>
-                          </div>
-                            <div>
-                              <label for="test">Upload Google Plagiarism Report</label>
-                              <input type="file" name="plagiarism" id="plagiarism">
-                              <p>{{ $applicant->plagiarism }}</p>
-                              <input type="submit" form="plagiarismform" value="delete">
-                              <a href="{{ route('plagiarismndownload', ['name' => $applicant->name, 'id' => $applicant->studentID]) }}"
-                                  class="btn btn-primary">Download Google Plagiarism Report</a>
-                          </div>
-                            <div>
-                              <label for="test">Decision for Mentoring Report</label>
-                              <input type="file" name="mentorreport" id="mentorreport">
-                              <p>{{ $applicant->mentorreport }}</p>
-                              <input type="submit" form="mentorreportform" value="delete">
-                              <a href="{{ route('mentorreportndownload', ['name' => $applicant->name, 'id' => $applicant->studentID]) }}"
-                                  class="btn btn-primary">Download Decision for Mentoring Report</a>
-                          </div>
-                            <div>
-                              <label for="test">Mentoring Report</label>
-                              <input type="file" name="mr" id="mr">
-                              <p>{{ $applicant->mr }}</p>
-                              <input type="submit" form="mrform" value="delete">
-                              <a href="{{ route('mrndownload', ['name' => $applicant->name, 'id' => $applicant->studentID]) }}"
-                                  class="btn btn-primary">Download Mentoring Report</a>
-                          </div>
+                              style="color:black;" >  <span class="glyphicon glyphicon-download"></span> </a>
+                          </div> </div>
+
                           <div>
-                            <label for="deansoffice">Starting Procedure for Dissertation Defense</label>
-                            <input type="checkbox" name="dissertation" id="dissertation"
-                                {{ $applicant->dissertation == 1 ? 'checked' : '' }}>
-                        </div>
-                            <button type="submit">Save</button>
+                                <label for="director">First Presentation</label>
+                                <input type="checkbox" name="director" id="director"
+                                    {{ $applicant->director == 1 ? 'checked' : '' }}>
+                            </div>
+                            <hr style="border: 0.5px solid grey;">
+
+
+
+
+                            <div class="linee">
+                                <p>Please click Complete if the student has no debt and upload the transcript. If not
+                                    please select Reject</p>
+                            </div>
+                            <div>
+                              
+                            <!-- <div><div style="display: flex; align-items: center; width: 50%" >
+
+                                      <label for="test" class="label bgcolor">Upload Transcript</label>
+                                      <input type="file" name="transcript" id="transcript">
+                                      <p>{{ $applicant->transcript }}</p>
+                                       
+                                      </div></div> -->
+                                <button class="button button1" type="submit" form="completedebt">Complete</button> 
+                                <button class="button button2" type="submit" form="rejectdebt">Reject</button>
+                            </div>
+
+                            <div>
+                            <div style="display: flex; align-items: center; width: 50%" >
+                                <label for="test" class="label bgcolor">Upload Second Presentation</label>
+                                <input class="fileClass" type="file" name="presentation2" id="presentation2">
+                           
+                                <p>{{ $applicant->presentation2 }}</p>
+                                
+                                <a href="{{ route('secondpresentationdownload', ['name' => $applicant->name, 'id' => $applicant->studentID]) }}"
+                                style="color:black;"   >  <span class="glyphicon glyphicon-download"></span> </a>
+                            </div> </div>
+                            
+
+                            <div>
+                            <div style="display: flex; align-items: center; width: 45%" >
+                                <label for="test"  class="label bgcolor">Evidence for presentation at conferences</label>
+                                <input class="fileClass" type="file" name="evidence" id="evidence">
+                           
+                                <p>{{ $applicant->evidence }}</p>
+                                
+                                <a href="{{ route('evidencedownload', ['name' => $applicant->name, 'id' => $applicant->studentID]) }}"
+                                style="color:black;"      >  <span class="glyphicon glyphicon-download"></span> </a>
+                            </div> </div>
+
+                            <div>
+                                <label for="coordinator">Coordinator of the PhD</label>
+                                <input type="checkbox" name="coordinator" id="coordinator"
+                                    {{ $applicant->coordinator == 1 ? 'checked' : '' }}>
+                            </div>
+                            <div>
+                                <label for="deansoffice">Dean's Office</label>
+                                <input type="checkbox" name="deansoffice" id="deansoffice"
+                                    {{ $applicant->deansoffice == 1 ? 'checked' : '' }}>
+                            </div>
+                            <div>
+                                <label for="director">Director</label>
+                                <input type="checkbox" name="director" id="director"
+                                    {{ $applicant->director == 1 ? 'checked' : '' }}>
+                            </div>   
+
+                            <div>
+                            <div style="display: flex; align-items: center; width: 45%" >
+                              <label for="test" class="label bgcolor">Upload The Decision of the Second Presentation</label>
+                              <input class="fileClass" type="file" name="desecondpresentation" id="desecondpresentation">
+                           
+                              <p>{{ $applicant->desecondpresentation }}</p>
+                              <a href="{{ route('desecondpresentationndownload', ['name' => $applicant->name, 'id' => $applicant->studentID]) }}"
+                              style="color:black;"><span class="glyphicon glyphicon-download"></span> </a>
+                          </div> </div>
+                          <div>
+                                <label for="SeconPresentation">Second Presentation</label>
+                                <input type="checkbox" name="SeconPresentation" id="SeconPresentation"
+                                    {{ $applicant->SeconPresentation == 1 ? 'checked' : '' }}>
+                            </div>
+
+<!-- -----------------------------------------------Starting procedure for disseration--------------------------------- -->
+                                <hr style="border: 0.5px solid grey;">
+
+                            <div><h4 style="text-align: center;">Starting Procedure for Disseration Defense</h4></div>
+
+                            <div>
+                            <div style="display: flex; align-items: center; width: 45%" >
+                              <label for="test" class="label bgcolor" >Transcript of grades</label>
+                              <input class="fileClass" type="file" name="gradetranscript" id="gradetranscript">
+                            
+                              <p>{{ $applicant->gradetranscript }}</p>
+                               <a href="{{ route('gradetranscriptndownload', ['name' => $applicant->name, 'id' => $applicant->studentID]) }}"
+                              style="color:black;"  > <span class="glyphicon glyphicon-download"></span> </a>
+                          </div></div>
+
+                            <div>
+                            <div style="display: flex; align-items: center; width: 45%" >
+                              <label for="test" class="label bgcolor">Upload Thesis Documentation</label>
+                              <input  class="fileClass" type="file" name="thesis" id="thesis">
+                            
+                              <p>{{ $applicant->thesis }}</p>
+                               <a href="{{ route('thesisndownload', ['name' => $applicant->name, 'id' => $applicant->studentID]) }}"
+                              style="color:black;"   > <span class="glyphicon glyphicon-download"></span> </a>
+                          </div></div>
+
+                            <div>
+                            <div style="display: flex; align-items: center; width: 45%" >
+                              <label for="test" class="label bgcolor">Upload Google Plagiarism Report</label>
+                              <input class="fileClass" type="file" name="plagiarism" id="plagiarism">
+                            
+                              <p>{{ $applicant->plagiarism }}</p>
+                               <a href="{{ route('plagiarismndownload', ['name' => $applicant->name, 'id' => $applicant->studentID]) }}"
+                              style="color:black;" >  <span class="glyphicon glyphicon-download"></span> </a>
+                          </div></div>
+
+                            <div>
+                            <div style="display: flex; align-items: center; width: 45%" >
+                              <label for="test" class="label bgcolor">Decision for Mentoring Report</label>
+                              <input class="fileClass" type="file" name="mentorreport" id="mentorreport">
+                            
+                              <p>{{ $applicant->mentorreport }}</p>
+                               <a href="{{ route('mentorreportndownload', ['name' => $applicant->name, 'id' => $applicant->studentID]) }}"
+                              style="color:black;" > <span class="glyphicon glyphicon-download"></span> </a>
+                          </div> </div>
+
+                            <div>
+                            <div style="display: flex; align-items: center; width: 45%" >
+                              <label for="test" class="label bgcolor">Mentoring Report</label>
+                              <input class="fileClass" type="file" name="mr" id="mr">
+                            
+                              <p>{{ $applicant->mr }}</p>
+                               <a href="{{ route('mrndownload', ['name' => $applicant->name, 'id' => $applicant->studentID]) }}"
+                                style="color:black;" class="glyphicon glyphicon-download" > <span ></span> </a>
+                          </div></div>
+
+                            
+                            <div>
+                                <label for="defense">Starting Procedure for Disseration Defense</label>
+                                <input type="checkbox" name="defense" id="defense"
+                                    {{ $applicant->defense == 1 ? 'checked' : '' }}>
+                            </div>
+                            <hr style="border: 0.5px solid grey;">
+
+<!-- -------------------------------------Doctoral Approve-------------------------------------------------- -->
+                            <div>
+                            <div style="display: flex; align-items: center; width: 45%" >
+                              <label for="test" class="label bgcolor">Upload Final Review Report</label>
+                              <input class="fileClass" type="file" name="finalreview" id="finalreview">
+                            
+                              <p>{{ $applicant->finalreview }}</p>
+                               <a href="{{ route('plagiarismndownload', ['name' => $applicant->name, 'id' => $applicant->studentID]) }}"
+                              style="color:black;" >  <span class="glyphicon glyphicon-download"></span> </a>
+                          </div></div>
+                          <div>
+
+                            <div style="display: flex; align-items: center; width: 45%" >
+                              <label for="test" class="label bgcolor">Upload Final Plagiarism Report</label>
+                              <input class="fileClass" type="file" name="plagiarism" id="plagiarism">
+                            
+                              <p>{{ $applicant->plagiarism }}</p>
+                               <a href="{{ route('plagiarismndownload', ['name' => $applicant->name, 'id' => $applicant->studentID]) }}"
+                              style="color:black;" >  <span class="glyphicon glyphicon-download"></span> </a>
+                          </div></div>
+                          <div>
+                            <div style="display: flex; align-items: center; width: 45%" >
+                              <label for="test" class="label bgcolor">Upload Final Plagiarism Report from Ministry</label>
+                              <input class="fileClass" type="file" name="plagiarism" id="plagiarism">
+                            
+                              <p>{{ $applicant->plagiarism }}</p>
+                               <a href="{{ route('plagiarismndownload', ['name' => $applicant->name, 'id' => $applicant->studentID]) }}"
+                              style="color:black;" >  <span class="glyphicon glyphicon-download"></span> </a>
+                          </div></div>
+                          <div>
+                            <div style="display: flex; align-items: center; width: 45%" >
+                              <label for="test" class="label bgcolor">Upload Final Thesis</label>
+                              <input class="fileClass" type="file" name="plagiarism" id="plagiarism">
+                            
+                              <p>{{ $applicant->plagiarism }}</p>
+                               <a href="{{ route('plagiarismndownload', ['name' => $applicant->name, 'id' => $applicant->studentID]) }}"
+                              style="color:black;" >  <span class="glyphicon glyphicon-download"></span> </a>
+                          </div></div>
+
+                          <div>
+                            <div style="display: flex; align-items: center; width: 45%" >
+                              <label for="test" class="label bgcolor">Upload Lecture Report</label>
+                              <input class="fileClass" type="file" name="plagiarism" id="plagiarism">
+                            
+                              <p>{{ $applicant->plagiarism }}</p>
+                               <a href="{{ route('plagiarismndownload', ['name' => $applicant->name, 'id' => $applicant->studentID]) }}"
+                              style="color:black;" >  <span class="glyphicon glyphicon-download"></span> </a>
+                          </div></div>
+                          <div>
+                            <div style="display: flex; align-items: center; width: 45%" >
+                              <label for="test" class="label bgcolor">Upload Originality Report</label>
+                              <input class="fileClass" type="file" name="plagiarism" id="plagiarism">
+                            
+                              <p>{{ $applicant->plagiarism }}</p>
+                               <a href="{{ route('plagiarismndownload', ['name' => $applicant->name, 'id' => $applicant->studentID]) }}"
+                              style="color:black;" >  <span class="glyphicon glyphicon-download"></span> </a>
+                          </div></div>
+
+
+
+                            <div>
+                                <label for="notify">Notify Doctoral School to approve</label>
+                                <input type="checkbox" name="notify" id="notify"
+                                    {{ $applicant->notify == 1 ? 'checked' : '' }}>
+                            </div>
+                           
+                            
+
+                            <hr style="border: 0.5px solid grey;">
+
+                            <div style="text-align: center;">
+  <button type="submit"style="margin: 0 auto;" class="btn btn-success">Save</button>
+</div>
+                            
                         </form>
                     </div>
                 </div>

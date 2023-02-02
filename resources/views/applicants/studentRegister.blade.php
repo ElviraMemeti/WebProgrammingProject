@@ -82,165 +82,164 @@ body {
 </style>  
 </head>  
 <body  style=" overflow-x:auto " > 
-
-     
+   
   <form  method="POST"  action="/applicants" class="table-responsive">  
-    @csrf
+          @csrf
 
-  <div class="container">
-    
-    <div class="row">
-      <div class="col-25">
-        <label for="name">Name</label>
-      </div>
-      <div class="col-75">
-        <input type="text" name="name" placeholder= "Name" size="15" required /> 
-      </div>
-    </div>
-    @error('name')
-    <p class="text-red-500 text-xs mt-1">{{$message}}</p>
-    @enderror
-
-
-    <div class="row">
-      <div class="col-25">
-        <label for="lastname">Last Name</label>
-      </div>
-      <div class="col-75">
-        <input type="text" name="lastname" placeholder= "Last Name" size="15" required /> 
-      </div>
-    </div>
-    @error('lastname')
-    <p class="text-red-500 text-xs mt-1">{{$message}}</p>
-    @enderror
-
-    
+          <div class="container">
+          
+          <div class="row">
+            <div class="col-25">
+              <label for="name">Name</label>
+            </div>
+            <div class="col-75">
+              <input type="text" name="name" placeholder= "Name" size="15" required /> 
+            </div>
+          </div>
+          @error('name')
+          <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+          @enderror
 
 
+          <div class="row">
+            <div class="col-25">
+              <label for="lastname">Last Name</label>
+            </div>
+            <div class="col-75">
+              <input type="text" name="lastname" placeholder= "Last Name" size="15" required /> 
+            </div>
+          </div>
+          @error('lastname')
+          <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+          @enderror
 
-    <div class="row">
-      <div class="col-25">
-        <label for="studentID">Student ID</label>
-      </div>
-      <div class="col-75">
-        <input type="number" name="studentID" placeholder="Student Id" size="15" required />   
-      </div>
-    </div>
-    @error('studentID')
-    <p class="text-red-500 text-xs mt-1">{{$message}}</p>
-    @enderror
-
-
-    <div class="row">
-      <div class="col-25">
-        <label for="faculty">Faculty</label>
-      </div>
-      <div class="col-75">
-        <select id="faculty" name="faculty_id">
-        <label> Faculty </label>   
-        <option value="">Faculty</option>  
-        @foreach ($faculties as $faculty) 
-          <option value="{{$faculty->id}}">{{$faculty->name}}</option> 
-          @endforeach
-        </select>
-      </div>
-    </div>
-    @error('faculty')
-    <p class="text-red-500 text-xs mt-1">{{$message}}</p>
-    @enderror
+          
 
 
-    <div class="row">
-      <div class="col-25">
-        <label for="programme">Study Programme</label>
-      </div>
-      <div class="col-75">
-        <select id="programme" name="programme_id" class="dynamic-select">
-        <label> Study programme </label> 
-          <option value="" faculty-id="">Study Programme</option>      
-          @foreach ($studyprograms as $studyprograms)
-              <option value="{{$studyprograms->id}}" faculty-id='{{$studyprograms->faculty_id}}' >{{$studyprograms->name}}</option>
-          @endforeach
-          </select>
-      </div>
-    </div>
-    @error('programme')
-    <p class="text-red-500 text-xs mt-1">{{$message}}</p>
-    @enderror
-  
 
-    <div class="row">
-      <div class="col-25">
-        <label for="registrationAcademicYear">Registeration Academic Year</label>
-      </div>
-      <div class="col-75">
-        <select id="registrationAcademicYear" name="academic_year">
-        <option value="AcademicYear"> Academic Year</option>
-        <option value="16/17">16/17</option>  
-        <option value="17/18">17/18</option>  
-        <option value="18/19">18/19</option>  
-        <option value="19/20">19/20</option>  
-        <option value="20/21">20/21</option>  
-        <option value="21/22">21/22</option> 
-        <option value="22/23">22/23</option>  
-        <option value="23/24">23/24</option> 
-          </select>
-      </div>
-    </div>
-    @error('registrationAcademicYear')
-    <p class="text-red-500 text-xs mt-1">{{$message}}</p>
-    @enderror
+          <div class="row">
+            <div class="col-25">
+              <label for="studentID">Student ID</label>
+            </div>
+            <div class="col-75">
+              <input type="number" name="studentID" placeholder="Student Id" size="15" required />   
+            </div>
+          </div>
+          @error('studentID')
+          <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+          @enderror
 
 
-    <div class="row">
-      <div class="col-25">
-        <label for="email">Email</label>
-      </div>
-      <div class="col-75">
-        <input type="text" name="email" placeholder="Email" size="15" required />   
-      </div>
-    </div>
-    @error('email')
-    <p class="text-red-500 text-xs mt-1">{{$message}}</p>
-    @enderror
+          <div class="row">
+            <div class="col-25">
+              <label for="faculty">Faculty</label>
+            </div>
+            <div class="col-75">
+              <select id="faculty" name="faculty_id">
+              <label> Faculty </label>   
+              <option value="">Faculty</option>  
+              @foreach ($faculties as $faculty) 
+                <option value="{{$faculty->id}}">{{$faculty->name}}</option> 
+                @endforeach
+              </select>
+            </div>
+          </div>
+          @error('faculty')
+          <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+          @enderror
 
 
-    <div class="row">
-      <div class="col-25">
-        <label for="phone">Phone</label>
-      </div>
-      <div class="col-75"> 
-      <input type="text" name="phone" placeholder="Phone number" size="10" required>
-      
-      </div>
-    </div>
-    @error('phone')
-    <p class="text-red-500 text-xs mt-1">{{$message}}</p>
-    @enderror
-    
-    <div class="row">
-      <div class="col-25">
-        <label for="status">Status</label>
-      </div>
-      <div class="col-75">
-      <select id="statusId" name="status">
-          <option value="Active">Active</option>  
-          <option value="Passive">Passive</option>  
-            </select>
-      </div>
-    </div>
-    @error('status')
-    <p class="text-red-500 text-xs mt-1">{{$message}}</p>
-    @enderror
+          <div class="row">
+            <div class="col-25">
+              <label for="programme">Study Programme</label>
+            </div>
+            <div class="col-75">
+              <select id="programme" name="programme_id" class="dynamic-select">
+              <label> Study programme </label> 
+                <option value="" faculty-id="">Study Programme</option>      
+                @foreach ($studyprograms as $studyprograms)
+                    <option value="{{$studyprograms->id}}" faculty-id='{{$studyprograms->faculty_id}}' >{{$studyprograms->name}}</option>
+                @endforeach
+                </select>
+            </div>
+          </div>
+          @error('programme')
+          <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+          @enderror
+        
 
-    <div class="row">
-      <input type="submit" value="Submit">
-      <a  type="cancel" href="{{ url()->previous() }}" class="btn btn-secondary">Cancel</a>
-    </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="registrationAcademicYear">Registeration Academic Year</label>
+            </div>
+            <div class="col-75">
+              <select id="registrationAcademicYear" name="academic_year">
+              <option value="AcademicYear"> Academic Year</option>
+              <option value="16/17">16/17</option>  
+              <option value="17/18">17/18</option>  
+              <option value="18/19">18/19</option>  
+              <option value="19/20">19/20</option>  
+              <option value="20/21">20/21</option>  
+              <option value="21/22">21/22</option> 
+              <option value="22/23">22/23</option>  
+              <option value="23/24">23/24</option> 
+                </select>
+            </div>
+          </div>
+          @error('registrationAcademicYear')
+          <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+          @enderror
 
-  </div>
-  </body>
-  </form> 
+
+          <div class="row">
+            <div class="col-25">
+              <label for="email">Email</label>
+            </div>
+            <div class="col-75">
+              <input type="text" name="email" placeholder="Email" size="15" required />   
+            </div>
+          </div>
+          @error('email')
+          <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+          @enderror
+
+
+          <div class="row">
+            <div class="col-25">
+              <label for="phone">Phone</label>
+            </div>
+            <div class="col-75"> 
+            <input type="text" name="phone" placeholder="Phone number" size="10" required>
+            
+            </div>
+          </div>
+          @error('phone')
+          <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+          @enderror
+          
+          <div class="row">
+            <div class="col-25">
+              <label for="status">Status</label>
+            </div>
+            <div class="col-75">
+            <select id="statusId" name="status">
+                <option value="Active">Active</option>  
+                <option value="Passive">Passive</option>  
+                  </select>
+            </div>
+            </div>
+            @error('status')
+            <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+            @enderror
+
+            <div class="row">
+              <input type="submit" value="Submit">
+              <a  type="cancel" href="{{ url()->previous() }}" class="btn btn-secondary">Cancel</a>
+            </div>
+
+            </div>
+            </body>
+        </form> 
   <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
   <script>
     $(document).ready(function () {

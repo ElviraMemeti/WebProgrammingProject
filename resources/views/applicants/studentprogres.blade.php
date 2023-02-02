@@ -124,224 +124,9 @@
                 margin: 4px 2px;
 
             }
-<<<<<<< HEAD
 
 
             /*----------------SCROLLBAR CSS---------------*/
-=======
-          .newline{
-            border-top: medium;
-                border-style: groove;
-                
-}
-.newline1{
-            border-top: medium;
-                border-style: groove;
-                margin-top: 12px;
-
-}
-            #name{
-                background-color: gray;
-                border: none;
-                color: white;
-                padding: 4px 135px;
-                text-align: center;
-                text-decoration: none;
-                display: inline-block;
-                font-size: 14px;
-                margin: 4px 2px;
-                margin-top: 12px;
-                
-            }
-            #name1{
-                background-color: gray;
-                border: none;
-                color: white;
-                padding: 4px 110px;
-                text-align: center;
-                text-decoration: none;
-                display: inline-block;
-                font-size: 14px;
-                margin: 4px 2px;
-                margin-top: 12px;
-
-            }
-            #name2{
-                background-color: gray;
-                border: none;
-                color: white;
-                padding: 4px 100px;
-                text-align: center;
-                text-decoration: none;
-                display: inline-block;
-                font-size: 14px;
-                margin: 4px 2px;
-                margin-top: 12px;
-
-            }
-            #name3{
-                background-color: gray;
-                border: none;
-                color: white;
-                padding: 4px 60px;
-                text-align: center;
-                text-decoration: none;
-                display: inline-block;
-                font-size: 14px;
-                margin: 4px 2px;
-                margin-top: 12px;
-
-            }
-            #name4{
-                background-color: gray;
-                border: none;
-                color: white;
-                padding: 4px 43px;
-                text-align: center;
-                text-decoration: none;
-                display: inline-block;
-                font-size: 14px;
-                margin: 4px 2px;
-                margin-top: 12px;
-
-            }
-            #name5{
-                background-color: gray;
-                border: none;
-                color: white;
-                padding: 4px 45px;
-                text-align: center;
-                text-decoration: none;
-                display: inline-block;
-                font-size: 14px;
-                margin: 4px 2px;
-                margin-top: 12px;
-
-            }
-            #name6{
-                background-color: gray;
-                border: none;
-                color: white;
-                padding: 4px 100px;
-                text-align: center;
-                text-decoration: none;
-                display: inline-block;
-                font-size: 14px;
-                margin: 4px 2px;
-                margin-top: 12px;
-
-            }
-            #name7{
-                background-color: gray;
-                border: none;
-                color: white;
-                padding: 4px 35px;
-                text-align: center;
-                text-decoration: none;
-                display: inline-block;
-                font-size: 14px;
-                margin: 4px 2px;
-                margin-top: 12px;
-
-            }
-            #name8{
-                background-color: gray;
-                border: none;
-                color: white;
-                padding: 4px 130px;
-                text-align: center;
-                text-decoration: none;
-                display: inline-block;
-                font-size: 14px;
-                margin: 4px 2px;
-                margin-top: 12px;
-
-            }
-            #name9{
-                background-color: gray;
-                border: none;
-                color: white;
-                padding: 4px 100px;
-                text-align: center;
-                text-decoration: none;
-                display: inline-block;
-                font-size: 14px;
-                margin: 4px 2px;
-                margin-top: 12px;
-
-            }
-            #name10{
-                background-color: gray;
-                border: none;
-                color: white;
-                padding: 4px 90px;
-                text-align: center;
-                text-decoration: none;
-                display: inline-block;
-                font-size: 14px;
-                margin: 4px 2px;
-                margin-top: 12px;
-
-            }
-            #name11{
-                background-color: gray;
-                border: none;
-                color: white;
-                padding: 4px 100px;
-                text-align: center;
-                text-decoration: none;
-                display: inline-block;
-                font-size: 14px;
-                margin: 4px 2px;
-                margin-top: 12px;
-
-            }
-            #name12{
-                background-color: gray;
-                border: none;
-                color: white;
-                padding: 4px 145px;
-                text-align: center;
-                text-decoration: none;
-                display: inline-block;
-                font-size: 14px;
-                margin: 4px 2px;
-                margin-top: 12px;
-
-            }
-           #buton{
-            background-color: #8FBC8F;
-                border: none;
-                color: white;
-                padding: 6px 25px;
-                text-align: center;
-                text-decoration: none;
-                display: inline-block;
-                font-size: 14px;
-                margin: 6px 4px;
-                margin-left:45%;
-                
-           }
-           #dissertation{
-            margin-left: 10px;
-            margin-top: 15px;
-           }
-
-           #delete{
-            border: 1px solid transparent;
-    border-radius: 4px;
-            background-color: #337ab7;
-    border-color: #2e6da4;
-                border: none;
-                color: white;
-                padding: 6px 25px;
-                text-align: center;
-                text-decoration: none;
-                display: inline-block;
-                font-size: 14px;
-                margin: 6px 4px;
-           }
->>>>>>> 2f80ab7188eef4c30b382d9a999cfc1e376c4764
             
            .divW{
             width: auto;
@@ -379,7 +164,6 @@
                   .divW{
                     width: 1040px;
                   }
-<<<<<<< HEAD
                   .label{
                      
                       padding: 8px;
@@ -395,12 +179,9 @@
                     color: white;
                     padding: 5px 10px;
                     border: none;
-                    
+                   
                     box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
                }
-=======
-             
->>>>>>> 2f80ab7188eef4c30b382d9a999cfc1e376c4764
 
                .fileClass{
                 
@@ -564,7 +345,6 @@
                                 <input type="checkbox" name="director" id="director"
                                     {{ $applicant->director == 1 ? 'checked' : '' }}>
                             </div>
-<<<<<<< HEAD
 
 
                             <div>
@@ -573,59 +353,11 @@
                               <input class="fileClass" type="file" name="defirstpresentation" id="defirstpresentation">
                             
                               <p>{{ $applicant->defirstpresentation }}</p>
-=======
-                            <div class= "newline">
-
-                                <label for="test" id="name">Upload Transcript</label>
-                                <input type="file" name="transcript" id="transcript">
-                               <p> {{ $applicant->transcript }}</p>
-                                <input type="submit" form="transcriptform" value="Delete" id="delete">
-                            </div>
-                            <div>
-
-                                <label for="test" id="name1">Upload First Presentation</label>
-                                <input type="file" name="presentation1" id="presentation1">
-                                <p>{{ $applicant->presentation1 }}</p>
-                                <input type="submit" form="presentationform" value="Delete" id="delete">
-                                <a href="{{ route('firstpresentationdownload', ['name' => $applicant->name, 'id' => $applicant->studentID]) }}"
-                                    class="btn btn-primary">Download first presantation here</a>
-                            </div>
-                            <div>
-                                <label for="test" id="name2">Upload Second Presentation</label>
-                                <input type="file" name="presentation2" id="presentation2">
-                                <p>{{ $applicant->presentation2 }}</p>
-                                <input type="submit" form="presentationform2" value="Delete" id="delete">
-                                <a href="{{ route('secondpresentationdownload', ['name' => $applicant->name, 'id' => $applicant->studentID]) }}"
-                                    class="btn btn-primary">Download second presantation here</a>
-                            </div>
-                            <div>
-                                <label for="test" id="name3">Evidence for presentation at conferences</label>
-                                <input type="file" name="evidence" id="evidence">
-                                <p>{{ $applicant->evidence }}</p>
-                                <input type="submit" form="evidenceform" value="Delete" id="delete">
-                                <a href="{{ route('evidencedownload', ['name' => $applicant->name, 'id' => $applicant->studentID]) }}"
-                                    class="btn btn-primary">Download Evidence for presentation at conferences</a>
-                            </div>
-                            <div>
-                              <label for="test" id="name4">Upload the Decision on the Approval of Thesis</label>
-                              <input type="file" name="approval" id="approval">
-                              <p>{{ $applicant->approval }}</p>
-                              <input type="submit" form="approvalform" value="Delete" id="delete">
-                              <a href="{{ route('approvaldownload', ['name' => $applicant->name, 'id' => $applicant->studentID]) }}"
-                                  class="btn btn-primary">Download the Decision on the Approval of Thesis</a>
-                          </div>
-                            <div>
-                              <label for="test" id="name5">Upload The Decision of the First Presentation</label>
-                              <input type="file" name="defirstpresentation" id="defirstpresentation">
-                              <p>{{ $applicant->defirstpresentation }}</p>
-                              <input type="submit" form="defirstpresentationform" value="Delete" id="delete">
->>>>>>> 2f80ab7188eef4c30b382d9a999cfc1e376c4764
                               <a href="{{ route('defirstpresentationdownload', ['name' => $applicant->name, 'id' => $applicant->studentID]) }}"
                               style="color:black;"  ><span class="glyphicon glyphicon-download"></span> </a>
                           </div></div>
 
                             <div>
-<<<<<<< HEAD
                             <div style="display: flex; align-items: center; width: 45%" >
                               <label for="test" class="label bgcolor">Upload First Progress Report</label>
                               <input class="fileClass" type="file" name="progresreport" id="progresreport">
@@ -854,69 +586,6 @@
   <button type="submit"style="margin: 0 auto;" class="btn btn-success">Save</button>
 </div>
                             
-=======
-                              <label for="test" id="name6">Upload First Progress Report</label>
-                              <input type="file" name="progresreport" id="progresreport">
-                              <p>{{ $applicant->progresreport }}</p>
-                              <input type="submit" form="progresreportform" value="Delete" id="delete">
-                              <a href="{{ route('progresreportndownload', ['name' => $applicant->name, 'id' => $applicant->studentID]) }}"
-                                  class="btn btn-primary">Download First Progress Report</a>
-                          </div>
-                            <div>
-                              <label for="test" id="name7">Upload The Decision of the Second Presentation</label>
-                              <input type="file" name="desecondpresentation" id="desecondpresentation">
-                              <p>{{ $applicant->desecondpresentation }}</p>
-                              <input type="submit" form="desecondpresentationform" value="Delete" id="delete">
-                              <a href="{{ route('desecondpresentationndownload', ['name' => $applicant->name, 'id' => $applicant->studentID]) }}"
-                                  class="btn btn-primary">Download the Decision of the Second Presentation</a>
-                          </div>
-                            <div>
-                              <label for="test" id="name8">Transcript of grades</label>
-                              <input type="file" name="gradetranscript" id="gradetranscript">
-                              <p>{{ $applicant->gradetranscript }}</p>
-                              <input type="submit" form="gradetranscriptform" value="Delete" id="delete">
-                              <a href="{{ route('gradetranscriptndownload', ['name' => $applicant->name, 'id' => $applicant->studentID]) }}"
-                                  class="btn btn-primary">Download Transcript of grades</a>
-                          </div>
-                            <div>
-                              <label for="test" id="name9">Upload Thesis Documentation</label>
-                              <input type="file" name="thesis" id="thesis">
-                              <p>{{ $applicant->thesis }}</p>
-                              <input type="submit" form="thesisform" value="Delete" id="delete">
-                              <a href="{{ route('thesisndownload', ['name' => $applicant->name, 'id' => $applicant->studentID]) }}"
-                                  class="btn btn-primary">Download Thesis Documentation</a>
-                          </div>
-                            <div>
-                              <label for="test"id="name10" >Upload Google Plagiarism Report</label>
-                              <input type="file" name="plagiarism" id="plagiarism">
-                              <p>{{ $applicant->plagiarism }}</p>
-                              <input type="submit" form="plagiarismform" value="Delete" id="delete">
-                              <a href="{{ route('plagiarismndownload', ['name' => $applicant->name, 'id' => $applicant->studentID]) }}"
-                                  class="btn btn-primary">Download Google Plagiarism Report</a>
-                          </div>
-                            <div>
-                              <label for="test"id="name11">Decision for Mentoring Report</label>
-                              <input type="file" name="mentorreport" id="mentorreport">
-                              <p>{{ $applicant->mentorreport }}</p>
-                              <input type="submit" form="mentorreportform" value="Delete" id="delete">
-                              <a href="{{ route('mentorreportndownload', ['name' => $applicant->name, 'id' => $applicant->studentID]) }}"
-                                  class="btn btn-primary">Download Decision for Mentoring Report</a>
-                          </div>
-                            <div>
-                              <label for="test" id="name12">Mentoring Report</label>
-                              <input type="file" name="mr" id="mr">
-                              <p>{{ $applicant->mr }}</p>
-                              <input type="submit" form="mrform" value="Delete" id="delete">
-                              <a href="{{ route('mrndownload', ['name' => $applicant->name, 'id' => $applicant->studentID]) }}"
-                                  class="btn btn-primary">Download Mentoring Report</a>
-                          </div>
-                          <div class="newline1">
-                            <label for="deansoffice">Starting Procedure for Dissertation Defense</label>
-                            <input type="checkbox" name="dissertation" id="dissertation"
-                                {{ $applicant->dissertation == 1 ? 'checked' : '' }}>
-                        </div>
-                            <button type="submit" id="buton">Save</button>
->>>>>>> 2f80ab7188eef4c30b382d9a999cfc1e376c4764
                         </form>
                     </div>
                 </div>

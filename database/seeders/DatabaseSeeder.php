@@ -49,7 +49,7 @@ class DatabaseSeeder extends Seeder
             ['name' => 'Azir Aliu' , 'faculty_id'=>2],
             ['name' => 'Mentor Hamiti' , 'faculty_id'=>3],
             ['name' => 'Agron Caushi' , 'faculty_id'=>4],
-            ['name' => 'Nuhi Besimi' , 'faculty_id'=>4],
+            ['name' => 'Nuhi Besimi' , 'faculty_id'=>5],
         ]);
     }
 }

@@ -378,21 +378,24 @@
 
 
 
-                            <div class="linee">
+                          
+                            <div>
+                               
+                                      
+                                <div class="linee">
                                 <p>Please click Complete if the student has no debt and upload the transcript. If not
                                     please select Reject</p>
-                            </div>
-                            <div>
-                              
-                            <!-- <div><div style="display: flex; align-items: center; width: 50%" >
-
-                                      <label for="test" class="label bgcolor">Upload Transcript</label>
-                                      <input type="file" name="transcript" id="transcript">
-                                      <p>{{ $applicant->transcript }}</p>
-                                       
-                                      </div></div> -->
+                                 </div>
+                           
                                 <button class="button button1" type="submit" form="completedebt">Complete</button> 
                                 <button class="button button2" type="submit" form="rejectdebt">Reject</button>
+                                <!-- <div><div style="display: flex; align-items: center; width: 50%" >
+
+                                 <label for="test" class="label bgcolor">Upload Transcript</label>
+                                 <input type="file" name="transcript" id="transcript">
+                                 <p>{{ $applicant->transcript }}</p>
+                                      </div></div> -->
+                               
                             </div>
 
                             <div>

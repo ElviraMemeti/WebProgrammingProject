@@ -27,7 +27,7 @@
             
           </a>
         </div>
-        <span class="leading-10 text-gray-100 text-2xl font-bold ml-1 uppercase">Project Web Programming</span>
+        <span class="leading-10 text-gray-100 text-2xl font-bold ml-1 uppercase"></span>
       </div>
       <div class="sidebar-content px-4 py-6">
         <ul class="flex flex-col w-full">
@@ -303,7 +303,7 @@
                 class="h-10 w-10 bg-gray-200 border rounded-full"
               />
               <span class="flex flex-col ml-2">
-                <span class="truncate w-20 font-semibold tracking-wide leading-none">John Doe</span>
+                <span class="truncate w-20 font-semibold tracking-wide leading-none">John.D</span>
                 <span class="truncate w-20 text-gray-500 text-xs leading-none mt-1">Manager</span>
               </span>
             </a>

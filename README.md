@@ -81,57 +81,52 @@ Timeline: 3 weeks
     -Stores information related to an accredited study program (name, type, duration, courses, etc.) 
     -Allows AP to add new study programs or update existing ones 
     -Provides data for other classes to use when needed 
-##### Draft Proposal Class:
-    -Stores information related to a draft proposal (title, mentor, student, summary, etc.) 
-    -Allows mentors to send proposals to Faculty Admin for approval and provides the Faculty Admin with necessary data to make a decision 
-##### First Presentation Class:
-    -Stores information related to a student's first presentation (title, mentor, student, summary, date, etc.) 
-    -Allows mentors to upload a student's First Presentation and notifies the Coordinator of the PhD program 
+
 
 
 ###  Use Case Diagram
--The system has 4 types of actors: Student, mentor, and Administrative Person (AP), Faculty Admin. <br>
--The student can register themselves or an AP can add a student to the system.<br>
--During registration, certain fields will only be visible to the AP.<br>
--The AP must login through the Login Form before they can access the PhD Program Screen, where they  can select to add, update, or view Mentors, Students, or Student Progress.<br>
--The List All Students Form allows the AP to search for a student by ID and add a new student.<br>
--The AP can also add Accredited Mentors, create Academic Titles, and add Accredited Study Programs.<br>
--A student can login and view a list of available mentors for their study program.<br>
--The mentor can send a Draft Proposal to the Faculty Admin, who can approve and upload it to the system.<br>
--The mentor can also upload the student's First Presentation, which will notify the Coordinator of the PhD program.<br>
--The mentor can then decide on the approval of the doctoral thesis topic and upload the documents.<br>
+    -The system has 4 types of actors: Student, mentor, and Administrative Person (AP), Faculty Admin. <br>
+    -The student can register themselves or an AP can add a student to the system.<br>
+    -During registration, certain fields will only be visible to the AP.<br>
+    -The AP must login through the Login Form before they can access the PhD Program Screen, where they  can select to add, update, or view Mentors, Students, or Student Progress.<br>
+    -The List All Students Form allows the AP to search for a student by ID and add a new student.<br>
+    -The AP can also add Accredited Mentors, create Academic Titles, and add Accredited Study Programs.<br>
+    -A student can login and view a list of available mentors for their study program.<br>
+    -The mentor can send a Draft Proposal to the Faculty Admin, who can approve and upload it to the system.<br>
+    -The mentor can also upload the student's First Presentation, which will notify the Coordinator of the PhD program.<br>
+    -The mentor can then decide on the approval of the doctoral thesis topic and upload the documents.<br>
 
 
 ![](useCase.png)
-https://lucid.app/lucidchart/c8c293df-8f64-49c0-aa52-49292f2d2c71/edit?page=0_0&invitationId=inv_43fc8309-13d9-4c32-a199-820ba2ccb40a#
+Link:https://lucid.app/lucidchart/c8c293df-8f64-49c0-aa52-49292f2d2c71/edit?page=0_0&invitationId=inv_43fc8309-13d9-4c32-a199-820ba2ccb40a#
 
 ###  Class Diagram
 The main actors in the system are the Student and the Administrative Person (AP). The system allows for two main use cases: student registration and administrative actions.<br>
 ##### Student registration:
--The student can initiate the registration process by clicking "I am a student" in the login form.<br>
--The student fills out the registration form, with certain fields remaining hidden until an accredited mentor is assigned.<br>
+    -The student can initiate the registration process by clicking "I am a student" in the login form.<br>
+    -The student fills out the registration form, with certain fields remaining hidden until an accredited mentor is assigned.<br>
 ##### Administrative actions:
--AP login through the "Login Form"<br>
--AP navigated to the PhD Program Screen<br>
--AP can select to perform actions on Mentors, Students or Student Progress.<br>
--AP can view and search a list of all students<br>
--AP can add a new student by navigating to the "Student Registration Form"<br>
--AP can add accredited mentors by navigating to the "List All Mentors" screen and clicking the "Add Mentor" button.<br>
--AP can create academic titles by navigating to the "Create Academic Title" form.<br>
--AP can add a study program by navigating to the "List of Accredited Programs" screen and selecting "Add Accredited Study Program"<br>
+    -AP login through the "Login Form"<br>
+    -AP navigated to the PhD Program Screen<br>
+    -AP can select to perform actions on Mentors, Students or Student Progress.<br>
+    -AP can view and search a list of all students<br>
+    -AP can add a new student by navigating to the "Student Registration Form"<br>
+    -AP can add accredited mentors by navigating to the "List All Mentors" screen and clicking the "Add Mentor" button.<br>
+    -AP can create academic titles by navigating to the "Create Academic Title" form.<br>
+    -AP can add a study program by navigating to the "List of Accredited Programs" screen and selecting "Add Accredited Study Program"<br>
 ##### Student specific actions:
--A student can see list of available mentors and contact them via email<br>
--A student can see their information like name, ID, academic year, faculty, study program and list of available mentors for him/her corresponding study program.<br>
+    -A student can see list of available mentors and contact them via email<br>
+    -A student can see their information like name, ID, academic year, faculty, study program and list of available mentors for him/her corresponding study program.<br>
 ##### Mentor specific actions:
--A mentor can send the “Draft Proposal” to the Faculty Admin<br>
--A mentor can upload the First Presentation of the student<br>
--A mentor logs in, and he can see list of students that they have. Once he has selected the student. <br>
+    -A mentor can send the “Draft Proposal” to the Faculty Admin<br>
+    -A mentor can upload the First Presentation of the student<br>
+    -A mentor logs in, and he can see list of students that they have. Once he has selected the student. <br>
 ##### Faculty Admin specific actions:
--Add study programs <br>
--Upload the document in the system <br>
+    -Add study programs <br>
+    -Upload the document in the system <br>
 
 ![](ClassDiagram.png)
-https://lucid.app/lucidchart/84120e1d-965e-4b6f-a3dd-73a6b0916bb4/edit?beaconFlowId=F9510C83A214A452&invitationId=inv_c7d53902-423e-45bd-9761-d921b5f7a624&page=0_0
+ Link:https://lucid.app/lucidchart/84120e1d-965e-4b6f-a3dd-73a6b0916bb4/edit?beaconFlowId=F9510C83A214A452&invitationId=inv_c7d53902-423e-45bd-9761-d921b5f7a624&page=0_0
 
 
 ### Unit Testing

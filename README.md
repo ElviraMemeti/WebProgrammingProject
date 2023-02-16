@@ -37,10 +37,6 @@ The project is a web-based system for managing PhD programs. The system has thre
 
 
 ###  Use Case Diagram
-
-
-Description:
-
 -The system has 3 types of actors: Student, mentor, and Administrative Person (AP). <br>
 -The student can register themselves or an AP can add a student to the system.<br>
 -During registration, certain fields will only be visible to the AP.<br>
@@ -56,9 +52,6 @@ Description:
 ![](UseCaseDiagram.png)
 
 ###  Class Diagram
-
-Description:
-
 The main actors in the system are the Student and the Administrative Person (AP). The system allows for two main use cases: student registration and administrative actions.<br>
 ##### Student registration:
 -The student can initiate the registration process by clicking "I am a student" in the login form.<br>

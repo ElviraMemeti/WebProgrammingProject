@@ -41,16 +41,16 @@ The project is a web-based system for managing PhD programs. The system has thre
 
 Description:
 
-•	The system has 3 types of actors: Student, mentor, and Administrative Person (AP). <br>
-•	The student can register themselves or an AP can add a student to the system.<br>
-•	During registration, certain fields will only be visible to the AP.<br>
-•	The AP must login through the Login Form before they can access the PhD Program Screen, where they  can select to add, update, or view Mentors, Students, or Student Progress.<br>
-•	The List All Students Form allows the AP to search for a student by ID and add a new student.<br>
-•	The AP can also add Accredited Mentors, create Academic Titles, and add Accredited Study Programs.<br>
-•	A student can login and view a list of available mentors for their study program.<br>
-•	The mentor can send a Draft Proposal to the Faculty Admin, who can approve and upload it to the system.<br>
-•	The mentor can also upload the student's First Presentation, which will notify the Coordinator of the PhD program.<br>
-•	The mentor can then decide on the approval of the doctoral thesis topic and upload the documents.<br>
+-The system has 3 types of actors: Student, mentor, and Administrative Person (AP). <br>
+-The student can register themselves or an AP can add a student to the system.<br>
+-During registration, certain fields will only be visible to the AP.<br>
+-The AP must login through the Login Form before they can access the PhD Program Screen, where they  can select to add, update, or view Mentors, Students, or Student Progress.<br>
+-The List All Students Form allows the AP to search for a student by ID and add a new student.<br>
+-The AP can also add Accredited Mentors, create Academic Titles, and add Accredited Study Programs.<br>
+-A student can login and view a list of available mentors for their study program.<br>
+-The mentor can send a Draft Proposal to the Faculty Admin, who can approve and upload it to the system.<br>
+-The mentor can also upload the student's First Presentation, which will notify the Coordinator of the PhD program.<br>
+-The mentor can then decide on the approval of the doctoral thesis topic and upload the documents.<br>
 
 
 ![](UseCaseDiagram.png)
@@ -61,27 +61,27 @@ Description:
 
 The main actors in the system are the Student and the Administrative Person (AP). The system allows for two main use cases: student registration and administrative actions.<br>
 ##### Student registration:
-•	The student can initiate the registration process by clicking "I am a student" in the login form.<br>
-•	The student fills out the registration form, with certain fields remaining hidden until an accredited mentor is assigned.<br>
+-The student can initiate the registration process by clicking "I am a student" in the login form.<br>
+-The student fills out the registration form, with certain fields remaining hidden until an accredited mentor is assigned.<br>
 ##### Administrative actions:
-•	AP login through the "Login Form"<br>
-•	AP navigated to the PhD Program Screen<br>
-•	AP can select to perform actions on Mentors, Students or Student Progress.<br>
-•	AP can view and search a list of all students<br>
-•	AP can add a new student by navigating to the "Student Registration Form"<br>
-•	AP can add accredited mentors by navigating to the "List All Mentors" screen and clicking the "Add Mentor" button.<br>
-•	AP can create academic titles by navigating to the "Create Academic Title" form.<br>
-•	AP can add a study program by navigating to the "List of Accredited Programs" screen and selecting "Add Accredited Study Program"<br>
+-AP login through the "Login Form"<br>
+-AP navigated to the PhD Program Screen<br>
+-AP can select to perform actions on Mentors, Students or Student Progress.<br>
+-AP can view and search a list of all students<br>
+-AP can add a new student by navigating to the "Student Registration Form"<br>
+-AP can add accredited mentors by navigating to the "List All Mentors" screen and clicking the "Add Mentor" button.<br>
+-AP can create academic titles by navigating to the "Create Academic Title" form.<br>
+-AP can add a study program by navigating to the "List of Accredited Programs" screen and selecting "Add Accredited Study Program"<br>
 ##### Student specific actions:
-•	A student can see list of available mentors and contact them via email<br>
-•	A student can see their information like name, ID, academic year, faculty, study program and list of available mentors for him/her corresponding study program.<br>
+-A student can see list of available mentors and contact them via email<br>
+-A student can see their information like name, ID, academic year, faculty, study program and list of available mentors for him/her corresponding study program.<br>
 ##### Mentor specific actions:
-•	A mentor can send the “Draft Proposal” to the Faculty Admin<br>
-•	A mentor can upload the First Presentation of the student<br>
-•	A mentor logs in, and he can see list of students that they have. Once he has selected the student. <br>
+-A mentor can send the “Draft Proposal” to the Faculty Admin<br>
+-A mentor can upload the First Presentation of the student<br>
+-A mentor logs in, and he can see list of students that they have. Once he has selected the student. <br>
 ##### Faculty Admin specific actions:
-•	Add study programs <br>
-•	Upload the document in the system <br>
+-Add study programs <br>
+-Upload the document in the system <br>
 
 ![](ClassDiagram.png)
 
@@ -93,6 +93,7 @@ The main actors in the system are the Student and the Administrative Person (AP)
 
  public function testStudentRegistration()
 {
+   
     $data = [
         'name'=> 'Jessica',
         'LastName'=>'Joan',
@@ -126,7 +127,9 @@ The main actors in the system are the Student and the Administrative Person (AP)
 
 
  public function a_student_can_be_updated()
-    { $applicant = new Applicant();
+    { 
+        
+        $applicant = new Applicant();
         $student = $applicant->create();
 
         $data = [
@@ -155,7 +158,9 @@ The main actors in the system are the Student and the Administrative Person (AP)
 
 
   public function a_student_can_be_deleted()
-    { $applicant = new Applicant();
+    { 
+        
+        $applicant = new Applicant();
         $student = $applicant->create();
 
         $response = $this->delete('/applicants/{applicant}'.$student->studentId);

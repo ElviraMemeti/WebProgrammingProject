@@ -37,7 +37,7 @@ The project is a web-based system for managing PhD programs. The system has thre
 
 
 ###  Use Case Diagram
--The system has 3 types of actors: Student, mentor, and Administrative Person (AP). <br>
+-The system has 4 types of actors: Student, mentor, and Administrative Person (AP), Faculty Admin. <br>
 -The student can register themselves or an AP can add a student to the system.<br>
 -During registration, certain fields will only be visible to the AP.<br>
 -The AP must login through the Login Form before they can access the PhD Program Screen, where they  can select to add, update, or view Mentors, Students, or Student Progress.<br>
@@ -76,7 +76,8 @@ The main actors in the system are the Student and the Administrative Person (AP)
 -Add study programs <br>
 -Upload the document in the system <br>
 
-![https://lucid.app/lucidchart/84120e1d-965e-4b6f-a3dd-73a6b0916bb4/edit?beaconFlowId=F9510C83A214A452&invitationId=inv_c7d53902-423e-45bd-9761-d921b5f7a624&page=0_0](ClassDiagram.png)
+![](ClassDiagram.png)
+https://lucid.app/lucidchart/84120e1d-965e-4b6f-a3dd-73a6b0916bb4/edit?beaconFlowId=F9510C83A214A452&invitationId=inv_c7d53902-423e-45bd-9761-d921b5f7a624&page=0_0
 
 
 ### Unit Testing

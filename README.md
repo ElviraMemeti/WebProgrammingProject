@@ -5,35 +5,35 @@ The project is a web-based system for managing PhD programs. The system has thre
 
 ###  Classes
 ##### Student Class:
-    -Registers a student into the system with required information <br>
-    -Allows students to view their information (name, ID, academic year, faculty, study program) and a list of available mentors for their study program <br>
-    -Provides authentication for students to login and access their information <br>
+    -Registers a student into the system with required information 
+    -Allows students to view their information (name, ID, academic year, faculty, study program) and a list of available mentors for their study program 
+    -Provides authentication for students to login and access their information 
 ##### Mentor Class:
-    -Sends Draft Proposal to Faculty Admin for approval <br>
-    -Uploads the student's First Presentation<br>
-    -Approves the doctoral thesis topic and uploads the related documents <br>
-    -Provides authentication for mentors to login and view their list of students <br>
+    -Sends Draft Proposal to Faculty Admin for approval 
+    -Uploads the student's First Presentation
+    -Approves the doctoral thesis topic and uploads the related documents 
+    -Provides authentication for mentors to login and view their list of students 
 ##### Administrative Person (AP) Class:
-    -Adds students to the system and assigns an accredited mentor <br>
-    -Updates student progress and status <br>
-    -Adds and manages Accredited Mentors, Academic Titles, and Accredited Study Programs <br>
-    -Searches and views a list of all students in the system <br>
-    -Provides authentication for AP to login and access the PhD Program Screen <br>
+    -Adds students to the system and assigns an accredited mentor 
+    -Updates student progress and status 
+    -Adds and manages Accredited Mentors, Academic Titles, and Accredited Study Programs 
+    -Searches and views a list of all students in the system 
+    -Provides authentication for AP to login and access the PhD Program Screen 
 ##### Faculty Admin Class:
-    -Adds and manages Accredited Study Programs <br>
-    -Approves or disapproves the Draft Proposal sent by mentors <br>
-    -Uploads the approved Draft Proposal and doctoral thesis topic related documents <br>
-    -Provides authentication for Faculty Admin to login and perform their actions <br>
+    -Adds and manages Accredited Study Programs 
+    -Approves or disapproves the Draft Proposal sent by mentors 
+    -Uploads the approved Draft Proposal and doctoral thesis topic related documents 
+    -Provides authentication for Faculty Admin to login and perform their actions 
 ##### Study Program Class:
-    -Stores information related to an accredited study program (name, type, duration, courses, etc.) <br>
-    -Allows AP to add new study programs or update existing ones <br>
-    -Provides data for other classes to use when needed <br>
+    -Stores information related to an accredited study program (name, type, duration, courses, etc.) 
+    -Allows AP to add new study programs or update existing ones 
+    -Provides data for other classes to use when needed 
 ##### Draft Proposal Class:
-    -Stores information related to a draft proposal (title, mentor, student, summary, etc.) <br>
-    -Allows mentors to send proposals to Faculty Admin for approval and provides the Faculty Admin with necessary data to make a decision <br>
+    -Stores information related to a draft proposal (title, mentor, student, summary, etc.) 
+    -Allows mentors to send proposals to Faculty Admin for approval and provides the Faculty Admin with necessary data to make a decision 
 ##### First Presentation Class:
-    -Stores information related to a student's first presentation (title, mentor, student, summary, date, etc.) <br>
-    -Allows mentors to upload a student's First Presentation and notifies the Coordinator of the PhD program <br>
+    -Stores information related to a student's first presentation (title, mentor, student, summary, date, etc.) 
+    -Allows mentors to upload a student's First Presentation and notifies the Coordinator of the PhD program 
 
 
 ###  Use Case Diagram

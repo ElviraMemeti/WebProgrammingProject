@@ -165,4 +165,31 @@ The main actors in the system are the Student and the Administrative Person (AP)
         ]);
     }
 
+### Installation
+To install and use this application, follow these steps:
 
+1 -Clone this repository to your local machine :
+git clone https://github.com/ElviraMemeti/WebProgrammingProject.git
+
+2 -Set up the database by creating a new MySQL database, and update the .env file with your database credentials : 
+.env.example .env
+php artisan migrate
+
+4 -Start the server : 
+php artisan serve
+
+### Usage
+To use this application, simply navigate to the homepage and start adding, editing, or deleting student information. You can also search for students using the search bar, and sort students by faculty.
+
+### Contributing
+If you would like to contribute to this project, please follow these guidelines:
+
+1 -Fork this repository and clone it to your local machine.
+2 -Create a new branch for your changes.
+3 -Make your changes and commit them with descriptive commit messages.
+4 -Push your changes to your forked repository.
+5 -Create a pull request to merge your changes into the main branch.
+
+
+### Conclusion
+We hope that this Student Management System me will be useful for you. If you have any questions or comments, please feel free to reach out to us. Thank you for using our app!

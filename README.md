@@ -43,8 +43,8 @@ Timeline: 2 weeks
 Timeline: 4 weeks
 
 ##### Milestone 4: Testing Tasks:
-•	Develop and perform unit testing for each class <br>
-•	Identify and resolve defects <br>
+-Develop and perform unit testing for each class <br>
+-Identify and resolve defects <br>
 
 ##### Deliverables:
 •	Unit testing document <br>

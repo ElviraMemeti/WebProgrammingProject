@@ -103,6 +103,7 @@ Timeline: 3 weeks
 
 
 ![](useCase.png)
+https://lucid.app/lucidchart/c8c293df-8f64-49c0-aa52-49292f2d2c71/edit?page=0_0&invitationId=inv_43fc8309-13d9-4c32-a199-820ba2ccb40a#
 
 ###  Class Diagram
 The main actors in the system are the Student and the Administrative Person (AP). The system allows for two main use cases: student registration and administrative actions.<br>

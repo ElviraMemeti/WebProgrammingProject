@@ -166,4 +166,3 @@ The main actors in the system are the Student and the Administrative Person (AP)
     }
 
 
-![Alt text](passTest.png)

@@ -18,7 +18,6 @@ The project is a web-based system for managing PhD programs. The system has thre
 •	Project scope document <br>
 •	Team roles  <br>
 •	Project timeline  <br>
-
 Timeline: 1 week
 
 ##### Milestone 2: System Design Tasks:
@@ -30,8 +29,7 @@ Timeline: 1 week
 •	Database schema document <br>
 •	Selected programming languages and technologies document <br>
 •	System development environment and tools document <br>
-
- Timeline: 2 weeks
+Timeline: 2 weeks
 
 ##### Milestone 3: System Development Tasks:
 •	Develop the Student, Mentor, Administrative Person (AP), Faculty Admin, Study Program, Draft        Proposal, and First     Presentation classes <br>
@@ -42,7 +40,6 @@ Timeline: 1 week
 •	Developed Student, Mentor, Administrative Person (AP), Faculty Admin, Study Program, Draft Proposal, and First Presentation classes <br>
 •	Implemented user interface <br>
 •	System functions and features document <br>
-
 Timeline: 4 weeks
 
 ##### Milestone 4: Testing Tasks:
@@ -52,7 +49,6 @@ Timeline: 4 weeks
 ##### Deliverables:
 •	Unit testing document <br>
 •	Defects log <br>
-
 Timeline: 3 weeks
 
 

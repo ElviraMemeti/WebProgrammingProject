@@ -18,7 +18,7 @@ The project is a web-based system for managing PhD programs. The system has thre
     -Project scope document 
     -Team roles  
     -Project timeline  
-Timeline: 1 week
+    Timeline: 1 week
 
 ##### Milestone 2: System Design Tasks:
     -Design the database schema 
@@ -29,7 +29,7 @@ Timeline: 1 week
     -Database schema document 
     -Selected programming languages and technologies document 
     -System development environment and tools document 
-Timeline: 2 weeks
+    Timeline: 2 weeks
 
 ##### Milestone 3: System Development Tasks:
     -Develop the Student, Mentor, Administrative Person (AP), Faculty Admin, Study Program, Draft  Proposal, and First     Presentation classes 
@@ -40,7 +40,7 @@ Timeline: 2 weeks
     -Developed Student, Mentor, Administrative Person (AP), Faculty Admin, Study Program, Draft Proposal, and First Presentation classes
     -Implemented user interface 
     -System functions and features document 
-Timeline: 4 weeks
+    Timeline: 4 weeks
 
 ##### Milestone 4: Testing Tasks:
     -Develop and perform unit testing for each class 
@@ -49,7 +49,7 @@ Timeline: 4 weeks
 ##### Deliverables:
     -Unit testing document  
     -Defects log 
-Timeline: 3 weeks
+    Timeline: 3 weeks
 
 
 
@@ -169,7 +169,7 @@ The main actors in the system are the Student and the Administrative Person (AP)
  ##### Student Update Testing
 
 
- public function a_student_can_be_updated()
+    public function a_student_can_be_updated()
     { 
         
         $applicant = new Applicant();
@@ -200,7 +200,7 @@ The main actors in the system are the Student and the Administrative Person (AP)
  ##### Student Delete testing
 
 
-  public function a_student_can_be_deleted()
+    public function a_student_can_be_deleted()
     { 
         
         $applicant = new Applicant();

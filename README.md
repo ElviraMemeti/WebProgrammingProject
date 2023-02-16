@@ -134,9 +134,9 @@ The main actors in the system are the Student and the Administrative Person (AP)
   ##### Student Registration Testing
 
 
- public function testStudentRegistration()
-{
-   
+    public function testStudentRegistration()
+    {
+    
     $data = [
         'name'=> 'Jessica',
         'LastName'=>'Joan',

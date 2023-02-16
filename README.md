@@ -76,7 +76,7 @@ The main actors in the system are the Student and the Administrative Person (AP)
 -Add study programs <br>
 -Upload the document in the system <br>
 
-![](ClassDiagram.png)
+![https://lucid.app/lucidchart/84120e1d-965e-4b6f-a3dd-73a6b0916bb4/edit?beaconFlowId=F9510C83A214A452&invitationId=inv_c7d53902-423e-45bd-9761-d921b5f7a624&page=0_0](ClassDiagram.png)
 
 
 ### Unit Testing
@@ -166,3 +166,20 @@ The main actors in the system are the Student and the Administrative Person (AP)
     }
 
 
+
+    ![](passTest.png)
+
+
+### Data processing and management
+
+Data processing and management: implementing the functionality to add, edit, and delete student data.
+
+![](studentList.png)
+
+Add Form
+
+![](addForm.png)
+
+Edit Form 
+
+![](editForm.png)

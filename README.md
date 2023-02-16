@@ -166,20 +166,4 @@ The main actors in the system are the Student and the Administrative Person (AP)
     }
 
 
-
-    ![](passTest.png)
-
-
-### Data processing and management
-
-Data processing and management: implementing the functionality to add, edit, and delete student data.
-
-![](studentList.png)
-
-Add Form
-
-![](addForm.png)
-
-Edit Form 
-
-![](editForm.png)
+![Alt text](passTest.png)

@@ -102,7 +102,7 @@ Timeline: 3 weeks
 -The mentor can then decide on the approval of the doctoral thesis topic and upload the documents.<br>
 
 
-![](UseCaseDiagram.png)
+![](useCase.png)
 
 ###  Class Diagram
 The main actors in the system are the Student and the Administrative Person (AP). The system allows for two main use cases: student registration and administrative actions.<br>
@@ -218,6 +218,9 @@ https://lucid.app/lucidchart/84120e1d-965e-4b6f-a3dd-73a6b0916bb4/edit?beaconFlo
             'studentId' => $student->studentId,
         ]);
     }
+
+
+  ![](testCases.png)
 
 ### Installation
 To install and use this application, follow these steps:

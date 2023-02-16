@@ -3,91 +3,57 @@
 ###  Introduction
 The project is a web-based system for managing PhD programs. The system has three types of actors: Students, Mentors, and Administrative Persons (AP). The system allows students to register themselves or be added by an AP, and view a list of available mentors for their study program. Mentors can send a Draft Proposal to the Faculty Admin, upload the student's First Presentation, and decide on the approval of the doctoral thesis topic and upload the related documents. The AP can add, update, or view Mentors, Students, or Student Progress, and can add Accredited Mentors, create Academic Titles, and add Accredited Study Programs. The system is designed to be user-friendly, secure, reliable, scalable, and maintainable. The project involves a number of functional and non-functional requirements that need to be met to ensure the system meets the needs of its users.
 
-### Milestone Document 
+### Milestone 
+
 ##### Milestone 1: Planning Tasks:
-•	Define the scope of the project, including functional and non-functional requirements
-•	Create use case diagram
-•	Create class diagram
-•	Identify the development methodology
-•	Assign team roles and responsibilities
-•	Define timelines
+•	Define the scope of the project <br>
+•	Create use case diagram <br>
+•	Create class diagram <br>
+•	Assign team roles and responsibilities <br>
+•	Define timelines <br>
 
 ##### Deliverables:
-•	Use case diagram
-•	Class diagram
-•	Project scope document
-•	Team roles 
-•	Project timeline 
+•	Use case diagram <br>
+•	Class diagram <br>
+•	Project scope document <br>
+•	Team roles  <br>
+•	Project timeline  <br>
 
-	Timeline: 1 week
+Timeline: 1 week
 
 ##### Milestone 2: System Design Tasks:
-•	Develop system architecture
-•	Design the database schema
-•	Develop the wireframes and mockups of the user interface
-•	Select the programming languages and technologies
-•	Define the system development environment and tools
+•	Design the database schema <br>
+•	Select the programming languages and technologies <br>
+•	Define the system development environment and tools <br>
 
 ##### Deliverables:
-•	System architecture document
-•	Database schema document
-•	Wireframes and mockups of the user interface
-•	Selected programming languages and technologies document
-•	System development environment and tools document
+•	Database schema document <br>
+•	Selected programming languages and technologies document <br>
+•	System development environment and tools document <br>
 
  Timeline: 2 weeks
 
 ##### Milestone 3: System Development Tasks:
-•	Develop the Student, Mentor, Administrative Person (AP), Faculty Admin, Study Program, Draft Proposal, and First     Presentation classes
-•	Implement the user interface according to the wireframes and mockups
-•	Implement authentication and authorization functionality
-•	Develop the necessary functions and features of the system
+•	Develop the Student, Mentor, Administrative Person (AP), Faculty Admin, Study Program, Draft        Proposal, and First     Presentation classes <br>
+•	Implement the user interface according to the wireframes <br>
+•	Develop the necessary functions and features of the system <br>
 
 ##### Deliverables:
-•	Developed Student, Mentor, Administrative Person (AP), Faculty Admin, Study Program, Draft Proposal, and First Presentation classes
-•	Implemented user interface
-•	Implemented authentication and authorization functionality
-•	System functions and features document
+•	Developed Student, Mentor, Administrative Person (AP), Faculty Admin, Study Program, Draft Proposal, and First Presentation classes <br>
+•	Implemented user interface <br>
+•	System functions and features document <br>
 
 Timeline: 4 weeks
 
 ##### Milestone 4: Testing Tasks:
-•	Develop and perform unit testing for each class
-•	Develop and perform integration testing
-•	Perform system testing, including functional and non-functional testing
-•	Develop and perform acceptance testing
-•	Identify and resolve defects
+•	Develop and perform unit testing for each class <br>
+•	Identify and resolve defects <br>
 
 ##### Deliverables:
-•	Unit testing document
-•	Integration testing document
-•	System testing document
-•	Acceptance testing document
-•	Defects log
+•	Unit testing document <br>
+•	Defects log <br>
 
 Timeline: 3 weeks
-
-##### Milestone 5: Deployment Tasks:
-•	Set up the production environment
-•	Deploy the system to the production environment
-•	Conduct user training sessions
-•	Obtain user feedback and perform any necessary updates
-
-##### Deliverables:
-•	Deployed system
-•	User training document
-•	User feedback log
-•	System updates document
-
-Timeline: 2 weeks
-
-##### Milestone 6: Maintenance Tasks:
-•	Monitor the system's performance and availability
-•	Provide technical support to the users
-•	Perform any necessary updates and maintenance
-
-##### Deliverables:
-•	Maintenance and support documentation
 
 
 

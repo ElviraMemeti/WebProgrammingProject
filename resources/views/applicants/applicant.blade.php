@@ -103,7 +103,7 @@
                 
                     <input type="hidden" name="_method" value="DELETE">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    <button type="submit" class="flex items-center">
+                    <button type="submit" class="flex items-center" onclick="return confirmDelete()">
                     <x-svg.delete/>
                 </button>
                 </form>
@@ -120,6 +120,10 @@
     </div>
   </div>
 
-
+  <script>
+    function confirmDelete() {
+        return confirm("Are you sure you want to delete this student?");
+    }
+</script>
 <x-partials.buttonCard/>
 </x-layout>

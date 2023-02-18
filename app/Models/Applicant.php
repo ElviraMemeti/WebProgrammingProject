@@ -14,7 +14,7 @@ class Applicant extends Model
       'deansoffice' , 'director' , 'defense' , 'notify' , 'debt' , 'debt_status' , 'transcript' ,
        'presentation1' , 'presentation2' , 'evidence', 'approval' , 'defirstpresentation' , 
        'progresreport' , 'desecondpresentation' , 'gradetranscript' , 'thesis' , 'plagiarism',
-        'mentorreport' , 'mr' , 'dissertation'];
+        'mentorreport' , 'mr' , 'dissertation', 'record_id'];
 
      public function faculty(){
         return $this->belongsTo(Faculty::class);
@@ -22,6 +22,11 @@ class Applicant extends Model
     }
     public function program(){
         return $this->belongsTo(StudyProgram::class,'programme_id');
+
+    }
+
+    public function record(){
+        return $this->belongsTo(Record::class);
 
     }
 

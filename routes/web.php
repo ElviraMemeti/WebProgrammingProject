@@ -40,7 +40,9 @@ Route::post('/applicants/transcriptupdate/{applicant}', [ApplicantController::cl
 //prej ktu
 Route::post('/applicants/presentationform/{applicant}', [ApplicantController::class, 'presentationform'])->name('studentprogres.presentation1');
 Route::post('/applicants/presentationform2/{applicant}', [ApplicantController::class, 'presentationform2'])->name('studentprogres.presentation2');
+
 Route::post('/applicants/evidenceform/{applicant}', [ApplicantController::class, 'evidenceform'])->name('studentprogres.evidence');
+
 Route::post('/applicants/approvalform/{applicant}', [ApplicantController::class, 'approvalform'])->name('studentprogres.approval');
 Route::post('/applicants/defirstpresentationform/{applicant}', [ApplicantController::class, 'defirstpresentationform'])->name('studentprogres.defirstpresentation');
 Route::post('/applicants/progresreportform/{applicant}', [ApplicantController::class, 'progresreportform'])->name('studentprogres.progresreport');
@@ -67,6 +69,9 @@ Route::get('thesisndownload', [DownloadController::class, 'thesisndownload'])->n
 Route::get('plagiarismndownload', [DownloadController::class, 'plagiarismndownload'])->name('plagiarismndownload');
 Route::get('mentorreportndownload', [DownloadController::class, 'mentorreportndownload'])->name('mentorreportndownload');
 Route::get('mrndownload', [DownloadController::class, 'mrndownload'])->name('mrndownload');
+
+
+Route::post('/graduation/update', 'GraduationController@update')->name('graduation.update');
 
 
 //edit form

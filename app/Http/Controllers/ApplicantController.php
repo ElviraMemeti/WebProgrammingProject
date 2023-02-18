@@ -40,10 +40,12 @@ public function store(Request $request)
         'academic_year'=>'required',
         'email'=>['required', 'email'],
         'phone'=>'required',
-        'status'=>'required',   
+        'status'=>'required', 
+        'debt'=>'required',
+        'exams_passed'=>'required'
     ]);
-    $formFields['debt']=rand(0,1);
-    $formFields['exams_passed']=rand(1,10);
+    // $formFields['debt']=rand(0,1);
+    // $formFields['exams_passed']=rand(1,10);
     $applicant = Applicant::create($formFields);
     $applicant->faculty()->associate($request->faculty_id);
     $applicant->program()->associate($request->programme_id);
@@ -113,6 +115,8 @@ public function updatestudentprogres(Request $request , Applicant $applicant){
         'mr' => 'mimes:docx,doc|max:2048',
     ]);
     
+    $request->review == "on" ? $formFields['FirstPresentation'] = 1 : $formFields['FirstPresentation'] = 0;
+    $request->review == "on" ? $formFields['SeconPresentation'] = 1 : $formFields['SeconPresentation'] = 0;
     $request->review == "on" ? $formFields['review'] = 1 : $formFields['review'] = 0;
     $request->coordinator == "on" ? $formFields['coordinator'] = 1 : $formFields['coordinator'] = 0;
     $request->defense == "on" ? $formFields['defense'] = 1 : $formFields['defense'] = 0;
@@ -148,7 +152,7 @@ public function updatestudentprogres(Request $request , Applicant $applicant){
         $path = Storage::disk('public')->url($path);
         $formFields['evidence'] = $filePath;
     }  
-//prej ktu
+
     if($request->approval != null) {
         $fileName = $request->approval->getClientOriginalName();
         $filePath = $applicant->name.'-'.$applicant->studentID.'/'.$fileName;
@@ -293,9 +297,9 @@ public function thesisform(Request $request, Applicant $applicant){
     }
     return redirect()->back();
 }
-public function plagiarismform(Request $request, Applicant $applicant){
-    if($request->plagiarism != null){
-        $applicant->update(["plagiarism" => null]);
+public function plagiarismform(Request $request, Applicant $applicant, string $form){
+    if($request->{$form} != null){
+        $applicant->update([$form => null]);
     }
     return redirect()->back();
 }

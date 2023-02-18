@@ -215,7 +215,7 @@
             <div class=" sm:-mx-6 lg:-mx-8">
                 <div class="py-4 inline-block min-w-full sm:px-6 lg:px-8">
                     <div class="divW ">
-                        <h1>{{ $applicant->name }}({{ $applicant->studentID }})</h1>
+                        <h1>{{ $applicant->name }} {{ $applicant->lastname }} ({{ $applicant->studentID }})</h1>
                         <p class="teachername">{{ $teacher->name }}</p>
                         <p>{{ $applicant->faculty->name }}-{{ $applicant->program->name }}({{ $applicant->academic_year }})
                         </p>
@@ -299,9 +299,35 @@
                             enctype="multipart/form-data">
                             @csrf
 
-                            
-                            <div class="review">
+                            <!-- <hr style="border: 0.5px solid grey;"> -->
                             <div>
+                               <br>
+                                      
+                               <div class="linee">
+                               <p>Please click Complete if the student has no debt and upload the transcript. If not
+                                   please select Reject</p>
+                                </div>
+                          
+                               <button class="button button1" type="submit" form="completedebt">Complete</button> 
+                               <button class="button button2" type="submit" form="rejectdebt">Reject</button>
+                               <!-- <div><div style="display: flex; align-items: center; width: 50%" >
+
+                                <label for="test" class="label bgcolor">Upload Transcript</label>
+                                <input type="file" name="transcript" id="transcript">
+                                <p>{{ $applicant->transcript }}</p>
+                                     </div></div> -->
+                              
+                           </div>
+
+                        <br><br>
+
+                         
+                           <hr style="border: 0.5px solid grey;">
+                           <div>
+
+                            <h2 style="text-align: center;">First Presentation</h2>
+
+                            
                             <div style="display: flex; align-items: center; width: 45%" >
                               <label for="test" class="label bgcolor">Upload the Decision on the Approval of Thesis</label>
                               <input class="fileClass" type="file" name="approval" id="approval">
@@ -311,13 +337,6 @@
                               <a href="{{ route('approvaldownload', ['name' => $applicant->name, 'id' => $applicant->studentID]) }}"
                               style="color:black;"  > <span class="glyphicon glyphicon-download"></span> </a>
                           </div></div>
-                            
-
-                                <label for="review">Review and Approval of the Doctoral Dissertation Plan</label>
-                                <input type="checkbox" name="review" id="review"
-                                    {{ $applicant->review == 1 ? 'checked' : '' }}>
-                            </div>
-                           <br>
 
                            <div >
                                 <div style="display: flex; align-items: center; width: 45%" >
@@ -330,21 +349,7 @@
                                 style="color:black;"  > <span class="glyphicon glyphicon-download"></span> </a>
                             </div></div>
 
-                            <div>
-                                <label for="coordinator">Coordinator of the PhD</label>
-                                <input type="checkbox" name="coordinator" id="coordinator"
-                                    {{ $applicant->coordinator == 1 ? 'checked' : '' }}>
-                            </div>
-                            <div>
-                                <label for="deansoffice">Dean's Office</label>
-                                <input type="checkbox" name="deansoffice" id="deansoffice"
-                                    {{ $applicant->deansoffice == 1 ? 'checked' : '' }}>
-                            </div>
-                            <div>
-                                <label for="director">Director</label>
-                                <input type="checkbox" name="director" id="director"
-                                    {{ $applicant->director == 1 ? 'checked' : '' }}>
-                            </div>
+                       
 
 
                             <div>
@@ -369,9 +374,9 @@
                           </div> </div>
 
                           <div>
-                                <label for="director">First Presentation</label>
-                                <input type="checkbox" name="director" id="director"
-                                    {{ $applicant->director == 1 ? 'checked' : '' }}>
+                                <label for="FirstPresentation">First Presentation</label>
+                                <input type="checkbox" name="FirstPresentation" id="FirstPresentation"
+                                    {{ $applicant->FirstPresentation == 1 ? 'checked' : '' }}>
                             </div>
                             <hr style="border: 0.5px solid grey;">
 
@@ -379,24 +384,8 @@
 
 
                           
-                            <div>
-                               
-                                      
-                                <div class="linee">
-                                <p>Please click Complete if the student has no debt and upload the transcript. If not
-                                    please select Reject</p>
-                                 </div>
-                           
-                                <button class="button button1" type="submit" form="completedebt">Complete</button> 
-                                <button class="button button2" type="submit" form="rejectdebt">Reject</button>
-                                <!-- <div><div style="display: flex; align-items: center; width: 50%" >
-
-                                 <label for="test" class="label bgcolor">Upload Transcript</label>
-                                 <input type="file" name="transcript" id="transcript">
-                                 <p>{{ $applicant->transcript }}</p>
-                                      </div></div> -->
-                               
-                            </div>
+                            <!-------------------SECOND PRESENTATION-================----------------------- -->
+                              <h2 style="text-align: center;">Second Presentation</h2>
 
                             <div>
                             <div style="display: flex; align-items: center; width: 50%" >
@@ -421,21 +410,7 @@
                                 style="color:black;"      >  <span class="glyphicon glyphicon-download"></span> </a>
                             </div> </div>
 
-                            <div>
-                                <label for="coordinator">Coordinator of the PhD</label>
-                                <input type="checkbox" name="coordinator" id="coordinator"
-                                    {{ $applicant->coordinator == 1 ? 'checked' : '' }}>
-                            </div>
-                            <div>
-                                <label for="deansoffice">Dean's Office</label>
-                                <input type="checkbox" name="deansoffice" id="deansoffice"
-                                    {{ $applicant->deansoffice == 1 ? 'checked' : '' }}>
-                            </div>
-                            <div>
-                                <label for="director">Director</label>
-                                <input type="checkbox" name="director" id="director"
-                                    {{ $applicant->director == 1 ? 'checked' : '' }}>
-                            </div>   
+                          
 
                             <div>
                             <div style="display: flex; align-items: center; width: 45%" >
@@ -455,7 +430,7 @@
 <!-- -----------------------------------------------Starting procedure for disseration--------------------------------- -->
                                 <hr style="border: 0.5px solid grey;">
 
-                            <div><h4 style="text-align: center;">Starting Procedure for Disseration Defense</h4></div>
+                            <div><h2 style="text-align: center;">Starting Procedure for Disseration Defense</h2></div>
 
                             <div>
                             <div style="display: flex; align-items: center; width: 45%" >
@@ -508,12 +483,8 @@
                           </div></div>
 
                             
-                            <div>
-                                <label for="defense">Starting Procedure for Disseration Defense</label>
-                                <input type="checkbox" name="defense" id="defense"
-                                    {{ $applicant->defense == 1 ? 'checked' : '' }}>
-                            </div>
-                            <hr style="border: 0.5px solid grey;">
+                          
+                           
 
 <!-- -------------------------------------Doctoral Approve-------------------------------------------------- -->
                             <div>
@@ -572,9 +543,37 @@
                                <a href="{{ route('plagiarismndownload', ['name' => $applicant->name, 'id' => $applicant->studentID]) }}"
                               style="color:black;" >  <span class="glyphicon glyphicon-download"></span> </a>
                           </div></div>
+                          <!-- <hr style="border: 0.5px solid grey;"> -->
 
 
 
+
+                            <!----------------- CHECK BOXES -->
+                            <label for="review">Review and Approval of the Doctoral Dissertation Plan</label>
+                                <input type="checkbox" name="review" id="review"
+                                    {{ $applicant->review == 1 ? 'checked' : '' }}>
+                                 <div>
+                                <label for="coordinator">Coordinator of the PhD</label>
+                                <input type="checkbox" name="coordinator" id="coordinator"
+                                    {{ $applicant->coordinator == 1 ? 'checked' : '' }}>
+                            </div>
+                            <div>
+                                <label for="deansoffice">Dean's Office</label>
+                                <input type="checkbox" name="deansoffice" id="deansoffice"
+                                    {{ $applicant->deansoffice == 1 ? 'checked' : '' }}>
+                            </div>
+                            <div>
+                                <label for="director">Director</label>
+                                <input type="checkbox" name="director" id="director"
+                                    {{ $applicant->director == 1 ? 'checked' : '' }}>
+                            </div>
+
+         
+                          <div>
+                                <label for="defense">Starting Procedure for Disseration Defense</label>
+                                <input type="checkbox" name="defense" id="defense"
+                                    {{ $applicant->defense == 1 ? 'checked' : '' }}>
+                            </div>
                             <div>
                                 <label for="notify">Notify Doctoral School to approve</label>
                                 <input type="checkbox" name="notify" id="notify"

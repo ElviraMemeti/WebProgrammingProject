@@ -1,6 +1,6 @@
 
 <x-layout>
-
+<x-partials.buttonCard/>
 <div class="flex flex-col">
     <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
       <div class="py-4 inline-block min-w-full sm:px-6 lg:px-8">
@@ -125,5 +125,5 @@
         return confirm("Are you sure you want to delete this student?");
     }
 </script>
-<x-partials.buttonCard/>
+
 </x-layout>

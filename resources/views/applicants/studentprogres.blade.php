@@ -325,7 +325,7 @@
                            <hr style="border: 0.5px solid grey;">
                            <div>
 
-                            <h2 style="text-align: center;">First Presentation</h2>
+                            <h3 style="text-align: center;">First Presentation</h3>
 
                             
                             <div style="display: flex; align-items: center; width: 45%" >
@@ -385,7 +385,7 @@
 
                           
                             <!-------------------SECOND PRESENTATION-================----------------------- -->
-                              <h2 style="text-align: center;">Second Presentation</h2>
+                              <h3 style="text-align: center;">Second Presentation</h3>
 
                             <div>
                             <div style="display: flex; align-items: center; width: 50%" >
@@ -430,7 +430,7 @@
 <!-- -----------------------------------------------Starting procedure for disseration--------------------------------- -->
                                 <hr style="border: 0.5px solid grey;">
 
-                            <div><h2 style="text-align: center;">Starting Procedure for Disseration Defense</h2></div>
+                            <div><h3 style="text-align: center;">Starting Procedure for Disseration Defense</h3></div>
 
                             <div>
                             <div style="display: flex; align-items: center; width: 45%" >

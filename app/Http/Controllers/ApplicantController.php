@@ -40,12 +40,11 @@ public function store(Request $request)
         'academic_year'=>'required',
         'email'=>['required', 'email'],
         'phone'=>'required',
-        'status'=>'required', 
-        'debt'=>'required',
-        'exams_passed'=>'required'
+        'status'=>'required'
+
     ]);
-    // $formFields['debt']=rand(0,1);
-    // $formFields['exams_passed']=rand(1,10);
+    $formFields['debt']=rand(0,1);
+    $formFields['exams_passed']=rand(1,10);
     $applicant = Applicant::create($formFields);
     $applicant->faculty()->associate($request->faculty_id);
     $applicant->program()->associate($request->programme_id);

@@ -316,5 +316,16 @@ public function mrform(Request $request, Applicant $applicant){
     return redirect()->back();
 
 }
+
+
+public function search(Request $request)
+{
+    $applicants = Applicant::filter([
+        'search' => $request->input('search')
+    ])->get();
+
+    return view('searchResults', ['applicants' => $applicants]);
+}
+
 }
 

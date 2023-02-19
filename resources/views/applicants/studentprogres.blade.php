@@ -549,6 +549,10 @@
 
 
                             <!----------------- CHECK BOXES -->
+
+                            <form action="{{ route('update-records', $applicant->studentID) }}" method="POST">
+                                @csrf
+                                @method('PUT')
                             <label for="review">Review and Approval of the Doctoral Dissertation Plan</label>
                                 <input type="checkbox" name="review" id="review"
                                     {{ $applicant->review == 1 ? 'checked' : '' }}>
@@ -579,8 +583,8 @@
                                 <input type="checkbox" name="notify" id="notify"
                                     {{ $applicant->notify == 1 ? 'checked' : '' }}>
                             </div>
-                           
-                            
+                            <button type="submit">Graduate Selected Students</button>
+                            </form>
 
                             <hr style="border: 0.5px solid grey;">
 

@@ -71,7 +71,10 @@ Route::get('mentorreportndownload', [DownloadController::class, 'mentorreportndo
 Route::get('mrndownload', [DownloadController::class, 'mrndownload'])->name('mrndownload');
 
 
-Route::post('/graduation/update', 'GraduationController@update')->name('graduation.update');
+// Route::post('/graduation/update', 'GraduationController@update')->name('graduation.update');
+Route::post('/update-records', [App\Http\Controllers\GraduationController::class, 'update'])->name('update-records');
+
+Route::get('/search',[ApplicantController::class, 'search'])->name('search');
 
 
 //edit form

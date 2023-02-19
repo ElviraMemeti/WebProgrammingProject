@@ -21,7 +21,8 @@ class GraduationController extends Controller
 
         if ($allSelected) {
             // update the status of the relevant records
-            Record::whereIn('id', $recordIds)->update(['status' => "Graduatedx"]);
+            Record::whereIn('id', $recordIds)->update(['status' => 'graduated']);
+            
         }
 
         // redirect back to the page where the form was submitted

@@ -225,7 +225,7 @@ body {
             <select id="statusId" name="status">
                 <option value="Active">Active</option>  
                 <option value="Passive">Passive</option>  
-                <option value="Passive">Graduated</option>  
+                
                   </select>
             </div>
             </div>

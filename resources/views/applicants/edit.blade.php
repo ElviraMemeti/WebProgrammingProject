@@ -228,7 +228,6 @@ a[type=cancel] {
       <select id="statusId" name="status">
           <option value="Active"<?php echo old('status', $applicant['status']) == 'Active' ? 'selected' : '' ?>>Active</option>  
           <option value="Passive"<?php echo old('status', $applicant['status']) == 'Passive' ? 'selected' : '' ?>>Passive</option>  
-          <option value="Graduated"<?php echo old('status', $applicant['status']) == 'Graduated' ? 'selected' : '' ?>>Graduated</option>  
      </select>
       </div>
     </div>

@@ -326,5 +326,24 @@ public function search(Request $request)
     return view('searchResults', ['applicants' => $applicants]);
 }
 
+
+
+public function updateStatus(Request $request, Applicant $applicant)
+{
+    // Check if all checkboxes are checked
+    $allChecked = $request->has('review') && $request->has('coordinator') && $request->has('deansoffice') && $request->has('director') && $request->has('defense') && $request->has('notify');
+    
+    if ($allChecked) {
+        // Update the status to "graduated"
+        $applicant->status = 'graduated';
+        $applicant->save();
+        
+        return response()->json(['message' => 'Status updated.']);
+    } else {
+        return response()->json(['message' => 'Not all checkboxes are checked.'], 422);
+    }
+}
+
+
 }
 

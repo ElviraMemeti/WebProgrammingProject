@@ -1,6 +1,79 @@
 
 <x-layout>
+<!doctype html>
+<html  lang="en">
+<head>
+   
+
+   <style>
+
+
+/* 
+
+.search-container{
+    background: #fff;
+    height: 30px;
+    border-radius: 30px;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.8s;
+   
+  box-shadow:  4px 4px 6px 0 rgba(255,255,255,.3),
+              -4px -4px 6px 0 rgba(116, 125, 136, .2), 
+    inset -4px -4px 6px 0 rgba(255,255,255,.2),
+    inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
+}
+
+.search-container:hover > .search-input{
+    width: 400px;
+}
+
+.search-container .search-input{
+    background: transparent;
+    border: none;
+    outline:none;
+    width: 0px;
+    font-weight: 500;
+    font-size: 16px;
+    transition: 0.8s;
+
+}
+
+.search-container .search-btn .fas{
+    color: #5cbdbb;
+} */
+
+ input[type=text] {
+  float: left;
+  padding: 6px;
+  border: none;
+  margin-top: 8px;
+  margin-right: 16px;
+  font-size: 17px;
+
+  border: 1px solid #ccc;
+}
+
+
+   </style>
+</head>
+</html>
+<div>
+  
+   <form action="{{ route('search') }}" method="GET">
+          <div class="search-container">
+            <input type="text" name="search" placeholder="Search..." class="search-input" >
+            <a href="#" class="search-btn">
+              <i class="fas fa-search"></i>      
+            </a>
+         </div>
+
+        </form>
 <x-partials.buttonCard/>
+</div>
 <div class="flex flex-col">
     <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
       <div class="py-4 inline-block min-w-full sm:px-6 lg:px-8">

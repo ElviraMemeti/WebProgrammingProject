@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use App\Models\Faculty;
-use App\Models\Applicant;
+
 use App\Models\StudyProgram;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;

@@ -177,11 +177,11 @@
                   }
 
                .bgcolor{
-                /* background-color: grey; */
+                /* background-color: #A9A9A9; */
                     color: black;
                     padding: 5px 10px;
                     border: none;
-                   font-weight: 200;
+                   font-weight: bold;
                     font-size: medium;
                     /* box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75); */
                }

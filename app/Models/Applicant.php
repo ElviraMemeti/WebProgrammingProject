@@ -45,9 +45,9 @@ class Applicant extends Model
                   });
         }
     }
-    
- 
-    
+
+
+
 
 
     public function changeStatusToGraduated(Request $request, $id)
@@ -58,9 +58,10 @@ class Applicant extends Model
 
         if ($applicant) {
             // Check if all checkboxes are checked
-            if ($request->review == "on" && $request->deansoffice == "on" && $request->director == "on" && $request->defense == "on" && $request->notify == "on") {
-                // Update the status field to "graduated"
-                $applicant->status = "graduated";
+            if ($request->review == "1" && $request->deansoffice == "1" && $request->director == "1"
+            && $request->defense == "1" && $request->notify == "1" && $request->coordinator) {
+
+                $applicant->status = "Graduated";
                 $applicant->save();
             }
         }

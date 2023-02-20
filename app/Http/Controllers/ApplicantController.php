@@ -117,12 +117,6 @@ public function updatestudentprogres(Request $request , Applicant $applicant){
 
     $request->presentationtick1 == "on" ? $formFields['presentationtick1'] = 1 : $formFields['presentationtick1'] = 0;
     $request->presentationtick2 == "on" ? $formFields['presentationtick2'] = 1 : $formFields['presentationtick2'] = 0;
-    $request->review == "on" ? $formFields['review'] = 1 : $formFields['review'] = 0;
-    $request->coordinator == "on" ? $formFields['coordinator'] = 1 : $formFields['coordinator'] = 0;
-    $request->defense == "on" ? $formFields['defense'] = 1 : $formFields['defense'] = 0;
-    $request->notify == "on" ? $formFields['notify'] = 1 : $formFields['notify'] = 0;
-    $request->deansoffice == "on" ? $formFields['deansoffice'] = 1 : $formFields['deansoffice'] = 0;
-    $request->director == "on" ? $formFields['director'] = 1 : $formFields['director'] = 0;
 
     if($request->transcript != null) {
         $fileName = "{$applicant->name}-{$applicant->studentID}-Transcript.docx";
@@ -335,13 +329,18 @@ public function updateStatus(Request $request, $id)
 {
     // Get the applicant record from the database based on the applicant ID
     $applicant = Applicant::find($id);
-
-
+    $formFields = [];
+    $request->review == "1" ? $formFields['review'] = 1 : $formFields['review'] = 0;
+    $request->coordinator == "1" ? $formFields['coordinator'] = 1 : $formFields['coordinator'] = 0;
+    $request->defense == "1" ? $formFields['defense'] = 1 : $formFields['defense'] = 0;
+    $request->notify == "1" ? $formFields['notify'] = 1 : $formFields['notify'] = 0;
+    $request->deansoffice == "1" ? $formFields['deansoffice'] = 1 : $formFields['deansoffice'] = 0;
+    $request->director == "1" ? $formFields['director'] = 1 : $formFields['director'] = 0;
     // Call changeStatusToGraduated method to update the status field
-    $applicant->changeStatusToGraduated($request, $id);
 
-    // Redirect back to the studentprogress file
-    return redirect()->route('studentprogress.file', $id);
+    $applicant->update($formFields);
+    $applicant->changeStatusToGraduated($request, $id);
+    return redirect()->back()->with('message',"Student has been updated");
 }
 
 

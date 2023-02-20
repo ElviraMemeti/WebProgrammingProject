@@ -596,7 +596,7 @@
                         </form>
 
 
-                        <form action="{{ route('applicants.status.graduated', $applicant->studentID) }}" method="post">
+                        <form action="{{ route('applicants.status.graduated', $applicant->id) }}" method="post">
     @csrf
     @method('PUT')
     <div class="form-group">

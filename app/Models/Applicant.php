@@ -42,8 +42,9 @@ class Applicant extends Model
     public function changeStatusToGraduated(Request $request, $id)
     {
         // Get the applicant record from the database based on the applicant ID
-        $applicant = Applicant::with(['reviews', 'defense'])->find($id);
+        $applicant = Applicant::find($id);
         
+       
         if ($applicant) {
             // Check if all checkboxes are checked
             if ($request->review == "on" && $request->deansoffice == "on" && $request->director == "on" && $request->defense == "on" && $request->notify == "on") {
@@ -56,8 +57,7 @@ class Applicant extends Model
     
     
 
-
-
+   
 
 }
 

@@ -330,7 +330,7 @@ public function search(Request $request)
 public function updateStatus(Request $request, $id)
 {
     // Get the applicant record from the database based on the applicant ID
-    $applicant = Applicant::with(['reviews', 'defense'])->find($id);
+    $applicant = Applicant::find($id);
         
 
     // Call changeStatusToGraduated method to update the status field

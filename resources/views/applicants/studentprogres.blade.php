@@ -177,12 +177,13 @@
                   }
 
                .bgcolor{
-                background-color: gray;
-                    color: white;
+                /* background-color: grey; */
+                    color: black;
                     padding: 5px 10px;
                     border: none;
-                   
-                    box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
+                   font-weight: 200;
+                    font-size: medium;
+                    /* box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75); */
                }
 
                .fileClass{

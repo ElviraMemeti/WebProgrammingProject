@@ -47,9 +47,12 @@ return new class extends Migration
         $table->string('mentorreport')->nullable();
         $table->string('mr')->nullable();
         $table->string('dissertation')->nullable();
-        
+        $table->boolean('presentationtick1')->nullable();
+        $table->boolean('presentationtick2')->nullable();
+
+
         $table->timestamps();
-        
+
         $table->foreign('faculty_id')
         ->references('id')->on('faculties')->onDelete('cascade');
 

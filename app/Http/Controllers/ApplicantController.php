@@ -58,7 +58,7 @@ public function edit(Applicant $applicant)
     'faculties'=> Faculty::all(),
     'studyprograms'=> StudyProgram::all()
 
-]); 
+]);
 }
 
 public function update(Request $request, Applicant $applicant)
@@ -72,7 +72,7 @@ public function update(Request $request, Applicant $applicant)
         'academic_year'=>'required',
         'email'=>['required', 'email'],
         'phone'=>'required',
-        'status'=>'',   
+        'status'=>'',
     ]);
 
     $applicant->update($formFields);
@@ -92,12 +92,12 @@ public function studentprogres(Applicant $applicant)
     $teacher = Teachers::where("faculty_id" , $applicant->faculty_id)->first();
 
     return view('applicants.studentprogres',[
-        'applicant'=> $applicant , 
+        'applicant'=> $applicant ,
         'teacher'=> $teacher
     ]);
 }
 public function updatestudentprogres(Request $request , Applicant $applicant){
- 
+
     $formFields= $request->validate([
         'transcript' => 'mimes:docx,doc,pdf|max:2048',
         'presentation1' => 'mimes:docx,doc,pdf|max:2048',
@@ -113,16 +113,16 @@ public function updatestudentprogres(Request $request , Applicant $applicant){
         'mentorreport' => 'mimes:docx,doc,pdf|max:2048',
         'mr' => 'mimes:docx,doc,pdf|max:2048',
     ]);
-    
-    $request->FirstPresentation == "on" ? $formFields['FirstPresentation'] = 1 : $formFields['FirstPresentation'] = 0;
-    $request->SeconPresentation == "on" ? $formFields['SeconPresentation'] = 1 : $formFields['SeconPresentation'] = 0;
+
+    $request->presentationtick1 == "on" ? $formFields['presentationtick1'] = 1 : $formFields['presentationtick1'] = 0;
+    $request->presentationtick2 == "on" ? $formFields['presentationtick2'] = 1 : $formFields['presentationtick2'] = 0;
     $request->review == "on" ? $formFields['review'] = 1 : $formFields['review'] = 0;
     $request->coordinator == "on" ? $formFields['coordinator'] = 1 : $formFields['coordinator'] = 0;
     $request->defense == "on" ? $formFields['defense'] = 1 : $formFields['defense'] = 0;
     $request->notify == "on" ? $formFields['notify'] = 1 : $formFields['notify'] = 0;
     $request->deansoffice == "on" ? $formFields['deansoffice'] = 1 : $formFields['deansoffice'] = 0;
     $request->director == "on" ? $formFields['director'] = 1 : $formFields['director'] = 0;
-    
+
     if($request->transcript != null) {
         $fileName = $request->transcript->getClientOriginalName();
         $filePath = $applicant->name.'-'.$applicant->studentID.'/'.$fileName;
@@ -150,7 +150,7 @@ public function updatestudentprogres(Request $request , Applicant $applicant){
         $path = Storage::disk('public')->put($filePath, file_get_contents($request->evidence));
         $path = Storage::disk('public')->url($path);
         $formFields['evidence'] = $filePath;
-    }  
+    }
 
     if($request->approval != null) {
         $fileName = $request->approval->getClientOriginalName();
@@ -158,63 +158,63 @@ public function updatestudentprogres(Request $request , Applicant $applicant){
         $path = Storage::disk('public')->put($filePath, file_get_contents($request->approval));
         $path = Storage::disk('public')->url($path);
         $formFields['approval'] = $filePath;
-    }  
+    }
     if($request->defirstpresentation != null) {
         $fileName = $request->defirstpresentation->getClientOriginalName();
         $filePath = $applicant->name.'-'.$applicant->studentID.'/'.$fileName;
         $path = Storage::disk('public')->put($filePath, file_get_contents($request->defirstpresentation));
         $path = Storage::disk('public')->url($path);
         $formFields['defirstpresentation'] = $filePath;
-    }  
+    }
     if($request->progresreport != null) {
         $fileName = $request->progresreport->getClientOriginalName();
         $filePath = $applicant->name.'-'.$applicant->studentID.'/'.$fileName;
         $path = Storage::disk('public')->put($filePath, file_get_contents($request->progresreport));
         $path = Storage::disk('public')->url($path);
         $formFields['progresreport'] = $filePath;
-    }  
+    }
     if($request->desecondpresentation != null) {
         $fileName = $request->desecondpresentation->getClientOriginalName();
         $filePath = $applicant->name.'-'.$applicant->studentID.'/'.$fileName;
         $path = Storage::disk('public')->put($filePath, file_get_contents($request->desecondpresentation));
         $path = Storage::disk('public')->url($path);
         $formFields['desecondpresentation'] = $filePath;
-    }  
+    }
     if($request->gradetranscript != null) {
         $fileName = $request->gradetranscript->getClientOriginalName();
         $filePath = $applicant->name.'-'.$applicant->studentID.'/'.$fileName;
         $path = Storage::disk('public')->put($filePath, file_get_contents($request->gradetranscript));
         $path = Storage::disk('public')->url($path);
         $formFields['gradetranscript'] = $filePath;
-    }  
+    }
     if($request->thesis != null) {
         $fileName = $request->thesis->getClientOriginalName();
         $filePath = $applicant->name.'-'.$applicant->studentID.'/'.$fileName;
         $path = Storage::disk('public')->put($filePath, file_get_contents($request->thesis));
         $path = Storage::disk('public')->url($path);
         $formFields['thesis'] = $filePath;
-    }  
+    }
     if($request->plagiarism != null) {
         $fileName = $request->plagiarism->getClientOriginalName();
         $filePath = $applicant->name.'-'.$applicant->studentID.'/'.$fileName;
         $path = Storage::disk('public')->put($filePath, file_get_contents($request->plagiarism));
         $path = Storage::disk('public')->url($path);
         $formFields['plagiarism'] = $filePath;
-    }  
+    }
     if($request->mentorreport != null) {
         $fileName = $request->mentorreport->getClientOriginalName();
         $filePath = $applicant->name.'-'.$applicant->studentID.'/'.$fileName;
         $path = Storage::disk('public')->put($filePath, file_get_contents($request->mentorreport));
         $path = Storage::disk('public')->url($path);
         $formFields['mentorreport'] = $filePath;
-    }  
+    }
     if($request->mr != null) {
         $fileName = $request->mr->getClientOriginalName();
         $filePath = $applicant->name.'-'.$applicant->studentID.'/'.$fileName;
         $path = Storage::disk('public')->put($filePath, file_get_contents($request->mr));
         $path = Storage::disk('public')->url($path);
         $formFields['mr'] = $filePath;
-    }  
+    }
     $applicant->update($formFields);
     return redirect()->back()->with('message',"Student has been updated");
 }
@@ -242,7 +242,7 @@ public function transcriptupdate(Request $request, Applicant $applicant){
     return redirect()->back();
 }
 public function presentationform(Request $request, Applicant $applicant){
-    
+
     if($request->presentation1 != null){
         $applicant->update(["presentation1" => null]);
     }
@@ -331,7 +331,7 @@ public function updateStatus(Request $request, $id)
 {
     // Get the applicant record from the database based on the applicant ID
     $applicant = Applicant::find($id);
-        
+
 
     // Call changeStatusToGraduated method to update the status field
     $applicant->changeStatusToGraduated($request, $id);

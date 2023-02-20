@@ -576,11 +576,11 @@
 
                               <div>
                               <label for="review">Review and Approval of the Doctoral Dissertation Plan</label>
-                              <input type="checkbox" name="review" id="review" value="1" data-status="reviewed" {{ $applicant->review == 1 ? 'checked' : '' }}>
+                              <input type="checkbox" name="review" id="review" {{ $applicant->review == 1 ? 'checked' : '' }}>
                               </div>
                               <div>
                                 <label for="coordinator">Coordinator of the PhD</label>
-                                <input type="checkbox" name="coordinator" id="coordinator" value="1"
+                                <input type="checkbox" name="coordinator" id="coordinator"  
                                     {{ $applicant->coordinator == 1 ? 'checked' : '' }}>
                             </div>
                             <div>
@@ -589,20 +589,23 @@
                                     {{ $applicant->deansoffice == 1 ? 'checked' : '' }}>
                             </div>
 
+
+                            
+
                               <div>
                                 <label for="director">Director</label>
-                                <input type="checkbox" name="director" id="director" value="1" data-status="reviewed" {{ $applicant->director == 1 ? 'checked' : '' }}>
+                                <input type="checkbox" name="director" id="director"   {{ $applicant->director == 1 ? 'checked' : '' }}>
                               </div>
 
 
                               <div>
                                 <label for="defense">Starting Procedure for Disseration Defense</label>
-                                  <input type="checkbox" name="defense" id="defense" value="1" data-status="reviewed"  {{ $applicant->defense == 1 ? 'checked' : '' }}>
+                                  <input type="checkbox" name="defense" id="defense"    {{ $applicant->defense == 1 ? 'checked' : '' }}>
                               </div>
 
                               <div>
                                 <label for="notify">Notify Doctoral School to approve</label>
-                                  <input type="checkbox" name="notify" id="notify" value="1" data-status="reviewed" {{ $applicant->notify == 1 ? 'checked' : '' }}>
+                                  <input type="checkbox" name="notify" id="notify"  {{ $applicant->notify == 1 ? 'checked' : '' }}>
 
                               </div>
 

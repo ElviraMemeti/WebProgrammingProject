@@ -24,7 +24,7 @@ return new class extends Migration
         $table->String('email');
         $table->String('phone');
         $table->String('status');
-        $table->integer('exams_passed');
+        $table->integer('exams_passed')->nullable();
         $table->boolean('review')->nullable();
         $table->boolean('coordinator')->nullable();
         $table->boolean('deansoffice')->nullable();
@@ -47,6 +47,7 @@ return new class extends Migration
         $table->string('mentorreport')->nullable();
         $table->string('mr')->nullable();
         $table->string('dissertation')->nullable();
+        
         
         $table->timestamps();
         

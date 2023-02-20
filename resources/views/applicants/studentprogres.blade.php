@@ -208,6 +208,9 @@
                   background: lightgray;
                 }
 
+                .box2{
+                 width: 80px;
+                }
                 
 
         </style>
@@ -225,7 +228,10 @@
                         <div class="number">
                             <p>Number of Credits Awarded <span class="box box1">{{ $applicant->exams_passed * 5 }}</span>
                             </p>
-                            <p>Number of Passed Exams <span class="box box2">{{ $applicant->exams_passed }}</span></p>
+                            <div class="">
+                              <label for="exams_passed" >Number of Passed Exams</label>
+                              <input type="number" name="exams_passed" class="box box2" value="{{ $applicant->exams_passed }}" required>
+                          </div>
                         </div>
                         <form id="completedebt" method="POST" action="{{ route('studentprogres.completedebt' , $applicant->id) }}">
                           @csrf 

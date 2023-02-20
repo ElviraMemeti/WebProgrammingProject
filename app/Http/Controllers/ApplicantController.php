@@ -40,7 +40,8 @@ public function store(Request $request)
         'academic_year'=>'required',
         'email'=>['required', 'email'],
         'phone'=>'required',
-        'status'=>''
+        'status'=>'',
+        // 'exams_passed'=>'required|integer|min:1|max:10'
 
     ]);
     $formFields['debt']=rand(0,1);

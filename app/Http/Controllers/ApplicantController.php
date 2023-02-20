@@ -318,14 +318,17 @@ public function mrform(Request $request, Applicant $applicant){
 }
 
 
+
 public function search(Request $request)
 {
     $applicants = Applicant::filter([
         'search' => $request->input('search')
     ])->get();
 
-    return view('searchResults', ['applicants' => $applicants]);
+    return view('searchResults', ['applicants' => $applicants, 'search' => $request->input('search')]);
 }
+
+
 
 
 public function updateStatus(Request $request, $id)

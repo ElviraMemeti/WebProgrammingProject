@@ -3,8 +3,10 @@
 namespace App\Models;
 
 use App\Models\Faculty;
+use App\Models\Applicant;
 use App\Models\StudyProgram;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -32,11 +34,20 @@ class Applicant extends Model
 
     public function scopeFilter($query, array $filters) {
         if($filters['search'] ?? false) {
-            $query->where('studentID', 'like', '%' . request('search') . '%')
-            ->orWhere('faculty_id', 'like', '%' . request('search') . '%');
+            $query->where('studentID', 'like', '%' . $filters['search'] . '%')
+                  ->orWhere(function($subquery) use ($filters) {
+                      $subquery->whereExists(function($query) use ($filters) {
+                          $query->select(DB::raw(1))
+                                ->from('faculties')
+                                ->whereRaw('faculties.id = applicants.faculty_id')
+                                ->where('faculties.name', 'like', '%' . $filters['search'] . '%');
+                      });
+                  });
         }
     }
-
+    
+ 
+    
 
 
     public function changeStatusToGraduated(Request $request, $id)

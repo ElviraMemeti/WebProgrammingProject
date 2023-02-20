@@ -40,7 +40,7 @@ public function store(Request $request)
         'academic_year'=>'required',
         'email'=>['required', 'email'],
         'phone'=>'required',
-        'status'=>'required'
+        'status'=>''
 
     ]);
     $formFields['debt']=rand(0,1);
@@ -72,7 +72,7 @@ public function update(Request $request, Applicant $applicant)
         'academic_year'=>'required',
         'email'=>['required', 'email'],
         'phone'=>'required',
-        'status'=>'required',   
+        'status'=>'',   
     ]);
 
     $applicant->update($formFields);
@@ -114,8 +114,8 @@ public function updatestudentprogres(Request $request , Applicant $applicant){
         'mr' => 'mimes:docx,doc|max:2048',
     ]);
     
-    $request->review == "on" ? $formFields['FirstPresentation'] = 1 : $formFields['FirstPresentation'] = 0;
-    $request->review == "on" ? $formFields['SeconPresentation'] = 1 : $formFields['SeconPresentation'] = 0;
+    $request->FirstPresentation == "on" ? $formFields['FirstPresentation'] = 1 : $formFields['FirstPresentation'] = 0;
+    $request->SeconPresentation == "on" ? $formFields['SeconPresentation'] = 1 : $formFields['SeconPresentation'] = 0;
     $request->review == "on" ? $formFields['review'] = 1 : $formFields['review'] = 0;
     $request->coordinator == "on" ? $formFields['coordinator'] = 1 : $formFields['coordinator'] = 0;
     $request->defense == "on" ? $formFields['defense'] = 1 : $formFields['defense'] = 0;
@@ -327,23 +327,19 @@ public function search(Request $request)
 }
 
 
-
-public function updateStatus(Request $request, Applicant $applicant)
+public function updateStatus(Request $request, $id)
 {
-    
-    // Check if all checkboxes are checked
-    $allChecked = $request->has('review') && $request->has('coordinator') && $request->has('deansoffice') && $request->has('director') && $request->has('defense') && $request->has('notify');
-    
-    if ($allChecked) {
-        // Update the status to "graduated"
-        $applicant->status = 'graduated';
-        $applicant->save();
+    // Get the applicant record from the database based on the applicant ID
+    $applicant = Applicant::with(['reviews', 'defense'])->find($id);
         
-        return response()->json(['message' => 'Status updated.']);
-    } else {
-        return response()->json(['message' => 'Not all checkboxes are checked.'], 422);
-    }
+
+    // Call changeStatusToGraduated method to update the status field
+    $applicant->changeStatusToGraduated($request, $id);
+
+    // Redirect back to the studentprogress file
+    return redirect()->route('studentprogress.file', $id);
 }
+
 
 
 }

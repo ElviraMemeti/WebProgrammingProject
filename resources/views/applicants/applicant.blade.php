@@ -46,6 +46,12 @@
     color: #5cbdbb;
 } */
 
+#search{
+  border-radius: 10px;
+  padding-left: 5px;
+
+}
+
  input[type=text] {
   float: left;
   padding: 6px;
@@ -65,7 +71,7 @@
   
    <form action="{{ route('search') }}" method="GET">
           <div class="search-container">
-            <input type="text" name="search" placeholder="Search..." class="search-input" >
+            <input type="text" name="search" id="search" placeholder="Search..." class="search-input" >
             <a href="#" class="search-btn">
               <i class="fas fa-search"></i>      
             </a>

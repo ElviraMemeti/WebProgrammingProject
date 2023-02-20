@@ -2,8 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Faculty;
+use App\Models\StudyProgram;
+use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Applicant extends Model
 {
@@ -25,10 +28,7 @@ class Applicant extends Model
 
     }
 
-    // public function record(){
-    //     return $this->belongsTo(Record::class);
-
-    // }
+   
 
     public function scopeFilter($query, array $filters) {
         if($filters['search'] ?? false) {
@@ -36,6 +36,25 @@ class Applicant extends Model
             ->orWhere('faculty_id', 'like', '%' . request('search') . '%');
         }
     }
+
+                
+    
+    public function changeStatusToGraduated(Request $request, $id)
+    {
+        // Get the applicant record from the database based on the applicant ID
+        $applicant = Applicant::with(['reviews', 'defense'])->find($id);
+        
+        if ($applicant) {
+            // Check if all checkboxes are checked
+            if ($request->review == "on" && $request->deansoffice == "on" && $request->director == "on" && $request->defense == "on" && $request->notify == "on") {
+                // Update the status field to "graduated"
+                $applicant->status = "graduated";
+                $applicant->save();
+            }
+        }
+    }
+    
+    
 
 
 

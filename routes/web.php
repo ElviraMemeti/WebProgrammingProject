@@ -86,6 +86,9 @@ Route::get('/applicants/{applicant}/edit',[ApplicantController::class, 'edit']);
 //Update student
 Route::put('/applicants/{applicant}',[ApplicantController::class,'update']);
 
+Route::put('/applicants/{studentID}/status/graduated', [ApplicantController::class, 'updateStatus'] )->name('applicants.status.graduated');
+
+
 //Delete student
 Route::delete('/applicants/{applicant}',[ApplicantController::class,'destroy']);
 

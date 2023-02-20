@@ -99,19 +99,19 @@ public function studentprogres(Applicant $applicant)
 public function updatestudentprogres(Request $request , Applicant $applicant){
  
     $formFields= $request->validate([
-        'transcript' => 'mimes:docx,doc|max:2048',
-        'presentation1' => 'mimes:docx,doc|max:2048',
-        'presentation2' => 'mimes:docx,doc|max:2048',
-        'evidence' => 'mimes:docx,doc|max:2048',
-        'approval' => 'mimes:docx,doc|max:2048',
-        'defirstpresentation' => 'mimes:docx,doc|max:2048',
-        'progresreport' => 'mimes:docx,doc|max:2048',
-        'desecondpresentation' => 'mimes:docx,doc|max:2048',
-        'gradetranscript' => 'mimes:docx,doc|max:2048',
-        'thesis' => 'mimes:docx,doc|max:2048',
-        'plagiarism' => 'mimes:docx,doc|max:2048',
-        'mentorreport' => 'mimes:docx,doc|max:2048',
-        'mr' => 'mimes:docx,doc|max:2048',
+        'transcript' => 'mimes:docx,doc,pdf|max:2048',
+        'presentation1' => 'mimes:docx,doc,pdf|max:2048',
+        'presentation2' => 'mimes:docx,doc,pdf|max:2048',
+        'evidence' => 'mimes:docx,doc,pdf|max:2048',
+        'approval' => 'mimes:docx,doc,pdf|max:2048',
+        'defirstpresentation' => 'mimes:docx,doc,pdf|max:2048',
+        'progresreport' => 'mimes:docx,doc,pdf|max:2048',
+        'desecondpresentation' => 'mimes:docx,doc,pdf|max:2048',
+        'gradetranscript' => 'mimes:docx,doc,pdf|max:2048',
+        'thesis' => 'mimes:docx,doc,pdf|max:2048',
+        'plagiarism' => 'mimes:docx,doc,pdf|max:2048',
+        'mentorreport' => 'mimes:docx,doc,pdf|max:2048',
+        'mr' => 'mimes:docx,doc,pdf|max:2048',
     ]);
     
     $request->FirstPresentation == "on" ? $formFields['FirstPresentation'] = 1 : $formFields['FirstPresentation'] = 0;

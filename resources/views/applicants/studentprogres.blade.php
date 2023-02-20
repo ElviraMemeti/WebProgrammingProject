@@ -212,7 +212,7 @@
                 .box2{
                  width: 80px;
                 }
-                
+
 
 
         </style>
@@ -570,7 +570,7 @@
 
                         <form id="status-form" action="{{ route('applicants.status.graduated', $applicant->id) }}" method="post">
                               @csrf
-                              @method('PUT')
+                              @method('POST')
 
 
 
@@ -585,7 +585,7 @@
                             </div>
                             <div>
                                 <label for="deansoffice">Dean's Office</label>
-                                <input type="checkbox" name="deansoffice" id="deansoffice"
+                                <input type="checkbox" name="deansoffice" id="deansoffice"  value="1"
                                     {{ $applicant->deansoffice == 1 ? 'checked' : '' }}>
                             </div>
 

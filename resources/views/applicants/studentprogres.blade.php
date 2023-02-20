@@ -297,10 +297,11 @@
                           <input type="hidden" value="mr" name="mr">
                         </form>
 
-                        <form action="{{ route('studentprogress.file', $applicant->id) }}" method="POST"
+                        
+                        <form id="status-form" action="{{ route('studentprogress.file', $applicant->id) }}" method="POST"
                             enctype="multipart/form-data">
                             @csrf
-
+                           
                             <!-- <hr style="border: 0.5px solid grey;"> -->
                             <div>
                                <br>
@@ -375,11 +376,11 @@
                               style="color:black;" >  <span class="glyphicon glyphicon-download"></span> </a>
                           </div> </div>
 
-                          <!-- <div>
+                          <div>
                                 <label for="FirstPresentation">First Presentation</label>
                                 <input type="checkbox" name="FirstPresentation" id="FirstPresentation"
                                     {{ $applicant->FirstPresentation == 1 ? 'checked' : '' }}>
-                            </div> -->
+                            </div>
                             <hr style="border: 0.5px solid grey;">
 
 
@@ -423,11 +424,11 @@
                               <a href="{{ route('desecondpresentationndownload', ['name' => $applicant->name, 'id' => $applicant->studentID]) }}"
                               style="color:black;"><span class="glyphicon glyphicon-download"></span> </a>
                           </div> </div>
-                          <!-- <div>
+                          <div>
                                 <label for="SeconPresentation">Second Presentation</label>
                                 <input type="checkbox" name="SeconPresentation" id="SeconPresentation"
                                     {{ $applicant->SeconPresentation == 1 ? 'checked' : '' }}>
-                            </div> -->
+                            </div>
 
 <!-- -----------------------------------------------Starting procedure for disseration--------------------------------- -->
                                 <hr style="border: 0.5px solid grey;">
@@ -548,40 +549,34 @@
                           <!-- <hr style="border: 0.5px solid grey;"> -->
 
 
-                        </form>
-
-                            <!----------------- CHECK BOXES -->
-                          <form id="status-form">
-                              @csrf
-                              @method('PUT')
                               
-                              <input type="hidden" name="applicant_id" value="{{ $applicant->id }}">
+                              <!-- <input type="hidden" name="applicant_id" value="{{ $applicant->id }}"> -->
                               <div>
                               <label for="review">Review and Approval of the Doctoral Dissertation Plan</label>
-                              <input type="checkbox" name="review" id="review" {{ $applicant->review == 1 ? 'checked' : '' }}>
+                              <input type="checkbox" name="review" id="review" data-status="reviewed" {{ $applicant->review == 1 ? 'checked' : '' }}>
                               </div>
-                              <!-- add more checkboxes here -->
                               <div>
                               <label for="deansoffice">Dean's Office</label>
-                              <input type="checkbox" name="deansoffice" id="deansoffice" {{ $applicant->deansoffice == 1 ? 'checked' : '' }}>
+                              <input type="checkbox" name="deansoffice" id="deansoffice" data-status="reviewed" {{ $applicant->deansoffice == 1 ? 'checked' : '' }}>
                               </div>
                               
                               <div>
                                 <label for="director">Director</label>
-                                <input type="checkbox" name="director" id="director" {{ $applicant->director == 1 ? 'checked' : '' }}>
+                                <input type="checkbox" name="director" id="director" data-status="reviewed" {{ $applicant->director == 1 ? 'checked' : '' }}>
                               </div>
 
                                   
                               <div>
                                 <label for="defense">Starting Procedure for Disseration Defense</label>
-                                  <input type="checkbox" name="defense" id="defense"  {{ $applicant->defense == 1 ? 'checked' : '' }}>
+                                  <input type="checkbox" name="defense" id="defense" data-status="reviewed"  {{ $applicant->defense == 1 ? 'checked' : '' }}>
                               </div>
                             
                               <div>
                                 <label for="notify">Notify Doctoral School to approve</label>
-                                  <input type="checkbox" name="notify" id="notify" {{ $applicant->notify == 1 ? 'checked' : '' }}>
+                                  <input type="checkbox" name="notify" id="notify" data-status="reviewed" {{ $applicant->notify == 1 ? 'checked' : '' }}>
                               </div>
-                                                    
+                              <!-- <input type="hidden" name="status" id="status" value="{{ $applicant->status }}">
+                  -->
 
 
 
@@ -602,46 +597,56 @@
 
 
         <script>
-    var checkboxes = document.querySelectorAll('input[type="checkbox"]');
-    var form = document.getElementById('status-form');
-    
-    for (var i = 0; i < checkboxes.length; i++) {
-        checkboxes[i].addEventListener('change', function() {
-            if (allCheckboxesChecked()) {
-                var applicantId = form.querySelector('input[name="applicant_id"]').value;
-                var url = '/applicants/' + applicantId + '/status';
-                
-                fetch(url, {
-                    method: 'PUT',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-                    }
-                })
-                .then(response => {
-                    if (response.ok) {
-                        // Handle successful response
-                    } else {
-                        // Handle error response
-                    }
-                });
-            }
-        });
-    }
-    
-    function allCheckboxesChecked() {
-      ar checkboxes = document.querySelectorAll('input[type="checkbox"]');
-    
-    for (var i = 0; i < checkboxes.length; i++) {
-        if (!checkboxes[i].checked) {
-            return false;
-        }
-    }
-    
-    return true;
-    }
-</script>
+          var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+var form = document.getElementById('status-form');
 
+for (var i = 0; i < checkboxes.length; i++) {
+  checkboxes[i].addEventListener('change', function() {
+    if (allCheckboxesChecked()) {
+      var applicantId = form.querySelector('input[name="applicant_id"]').value;
+      var url = '/applicants/' + applicantId + '/status';
+      
+      fetch(url, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+        }
+      })
+      .then(response => {
+        if (response.ok) {
+          // Handle successful response
+          var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+          var name = document.getElementById('studentID');
+
+          // Change the color of the applicant's name to green
+          name.style.color = 'green';
+
+          // Disable the checkboxes
+          for (var i = 0; i < checkboxes.length; i++) {
+            checkboxes[i].disabled = true;
+          }
+        } else {
+          // Handle error response
+        }
+      });
+    }
+  });
+}
+
+function allCheckboxesChecked() {
+  var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+  for (var i = 0; i < checkboxes.length; i++) {
+    if (!checkboxes[i].checked) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+          </script>
 
        </body>
 

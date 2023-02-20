@@ -328,21 +328,29 @@ public function search(Request $request)
 
 
 
-public function updateStatus(Request $request, Applicant $applicant)
+public function updateStatus(Request $request, $id)
 {
-    // Check if all checkboxes are checked
-    $allChecked = $request->has('review') && $request->has('coordinator') && $request->has('deansoffice') && $request->has('director') && $request->has('defense') && $request->has('notify');
+    $applicant = Applicant::find($id);
     
-    if ($allChecked) {
-        // Update the status to "graduated"
+    if (!$applicant) {
+        return response()->json(['error' => 'Applicant not found'], 404);
+    }
+    
+    // Debug statements to check if the request is received
+    error_log('Request received: ' . json_encode($request->all()));
+    error_log('Applicant status: ' . $applicant->status);
+    
+    if ($request->has('status') && $request->input('status') == 'graduated') {
         $applicant->status = 'graduated';
         $applicant->save();
-        
-        return response()->json(['message' => 'Status updated.']);
-    } else {
-        return response()->json(['message' => 'Not all checkboxes are checked.'], 422);
+        return response()->json(['message' => 'Status updated successfully'], 200);
     }
+    
+    return response()->json(['error' => 'Invalid request'], 400);
 }
+
+
+
 
 
 }

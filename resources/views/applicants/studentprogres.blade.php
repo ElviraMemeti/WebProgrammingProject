@@ -208,14 +208,12 @@
                   background: lightgray;
                 }
 
-<<<<<<< HEAD
+
                 .box2{
                  width: 80px;
                 }
                 
-=======
 
->>>>>>> bcf313b00baee77d2102bc1e5ae60765ccec22bc
 
         </style>
     </head>
@@ -606,7 +604,7 @@
                                 <label for="notify">Notify Doctoral School to approve</label>
                                   <input type="checkbox" name="notify" id="notify" value="1" data-status="reviewed" {{ $applicant->notify == 1 ? 'checked' : '' }}>
 
-
+                              </div>
 
                                   <div style="text-align: center;">
                               <button type="submit" style="margin: 0 auto;" class="btn btn-success">Final Save</button>
